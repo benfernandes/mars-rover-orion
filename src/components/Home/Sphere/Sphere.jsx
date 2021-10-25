@@ -1,4 +1,6 @@
-import React, { useRef, Suspense } from "react";
+// noinspection CommaExpressionJS
+
+import React, {useRef, Suspense} from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import {Canvas, useFrame, useLoader} from "react-three-fiber";
 import model from '../../../assets/Sphere/mars.glb'
@@ -12,13 +14,14 @@ const Mars = () => {
     // model is from https://solarsystem.nasa.gov/resources/2372/mars-3d-model/
     // use GTLFLoader from three.js and useLoader hook from react-three-fiber to load model
 
-    useFrame(() => (planet.current.rotation.y += 0.0002));
+
+    useFrame(() => (planet.current.rotation.y += 0.001));
     // Adds rotation to planet
 
     return (
         <mesh
             ref={planet}
-            visible
+            visible={true}
             position={[0, 0, 0]}
             // Adding data from mars.glb to the geometry and material of the sphere
             geometry={nodes.Cube008.geometry}
@@ -31,8 +34,8 @@ const Sphere = () => {
     return (
         <Canvas className="canvas">
             <CameraControls />
-            <directionalLight intensity={1} />
-            <ambientLight intensity={0.6} />
+            <directionalLight intensity={0.3} position={(1, 0.5, 0.5)}/>
+            <ambientLight intensity={0.05} />
             <Suspense fallback="loading">
                 <Mars />
             </Suspense>
