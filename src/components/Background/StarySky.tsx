@@ -43,11 +43,14 @@ const SingleStar: React.FC<SingleStarProp> = (props: SingleStarProp) =>
 
         const randomSize = Math.random() * props.maxSize;
 
+        const randomRotation = Math.random() * 90;
+
         return <div className='single-star' style={{
             top: randomPositionY,
             left: randomPositionX,
             width: randomSize,
-            height: randomSize
+            height: randomSize,
+            transform: `rotate(${randomRotation}deg)`,
             }}></div>
     }
     else
