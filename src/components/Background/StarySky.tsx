@@ -45,12 +45,15 @@ const SingleStar: React.FC<SingleStarProp> = (props: SingleStarProp) =>
 
         const randomRotation = Math.random() * 90;
 
+        const randomAnimationDelay = Math.random() * 5 + randomSize * 2;
+
         return <div className='single-star' style={{
             top: randomPositionY,
             left: randomPositionX,
             width: randomSize,
             height: randomSize,
             transform: `rotate(${randomRotation}deg)`,
+            animationDuration: `${randomAnimationDelay}s`,
             }}></div>
     }
     else
