@@ -11,7 +11,6 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   return (
       <div className="App">
-        <NavBar />
         <Router>
             {/* Components that are on all pages go outside of switch */}
             <Switch>
