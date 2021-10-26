@@ -18,24 +18,46 @@ const Mars = () => {
     useFrame(() => (planet.current.rotation.y += 0.001));
     // Adds rotation to planet
 
+    const Marker = (props) => {
+        const ref = useRef()
+
+        useFrame(() => (ref.current.rotation.y += 0.001));
+
+        return (
+            <group>
+                <mesh
+                    {...props}
+                    ref={ref}
+                    scale={1}>
+                    <sphereBufferGeometry args={[100, 100, 100]} />
+                    <meshStandardMaterial color={'hotpink'} />
+                </mesh>
+            </group>
+        )
+    }
+
     return (
-        <mesh
-            ref={planet}
-            visible={true}
-            position={[0, 0, 0]}
-            // Adding data from mars.glb to the geometry and material of the sphere
-            geometry={nodes.Cube008.geometry}
-            material={nodes.Cube008.material}
-        />
+        <group ref={planet}>
+            <mesh
+                visible={true}
+                position={[0, 0, 0]}
+                // Adding data from mars.glb to the geometry and material of the sphere
+                geometry={nodes.Cube008.geometry}
+                material={nodes.Cube008.material}>
+            </mesh>
+            <Marker position={[250, 250, 250]} />
+        </group>
+
     );
 };
+
 
 const Sphere = () => {
     return (
         <Canvas className="canvas">
             <CameraControls />
-            <directionalLight intensity={0.3} position={(1, 0.5, 0.5)}/>
-            <ambientLight intensity={0.05} />
+            <directionalLight intensity={0.5} position={(0, 0, 1)}/>
+            <ambientLight intensity={0.07} />
             <Suspense fallback="loading">
                 <Mars />
             </Suspense>

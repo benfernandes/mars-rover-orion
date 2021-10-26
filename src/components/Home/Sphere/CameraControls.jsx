@@ -15,6 +15,7 @@ const CameraControls = () => {
     const controls = useRef();
 
     camera.position.z = 999;
+    //zoom
 
     useFrame(() => controls.current.update());
 
