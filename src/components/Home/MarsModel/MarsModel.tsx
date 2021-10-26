@@ -11,6 +11,8 @@ const Scene = () => {
     useFrame(() => (planet.current.rotation.y += 0.002));
     // Adds rotation to planet
 
+
+    //  TODO 47 remove @ts-ignore
     // @ts-ignore
     const Marker = (props) => (
         <mesh
