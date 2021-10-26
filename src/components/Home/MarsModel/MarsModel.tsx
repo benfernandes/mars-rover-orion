@@ -1,10 +1,9 @@
 import React, {useRef, Suspense} from "react";
 import {Canvas, useFrame, useLoader} from "react-three-fiber";
-import CameraControls from "./CameraControls";
 import './styles.scss'
 import { Html } from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {Object3D, Vector3} from "three";
+import {Object3D} from "three";
 
 const Mars = () => {
     const planet = useRef(new Object3D());
@@ -69,7 +68,6 @@ const MarsModel = () => {
     return (
         <Canvas className="canvas"
                 camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}>
-            {/*<CameraControls />*/}
             <directionalLight intensity={0.5} position={[2000, 2000, 2000]}/>
             <ambientLight intensity={0.07} />
             <Suspense fallback="loading">
