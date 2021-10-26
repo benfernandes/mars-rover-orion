@@ -1,14 +1,14 @@
-import React, {useRef, Suspense} from "react";
-import {Canvas, useFrame, useLoader} from "react-three-fiber";
+import React, {useRef, Suspense} from 'react';
+import {Canvas, useFrame, useLoader} from 'react-three-fiber';
 import './styles.scss'
-import { Html } from "@react-three/drei";
-import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {Object3D} from "three";
+import { Html } from '@react-three/drei';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
+import {Object3D} from 'three';
 
 const Mars = () => {
     const planet = useRef(new Object3D());
 
-    const { nodes } = useLoader(GLTFLoader, "assets/MarsModel/mars.glb");
+    const { nodes } = useLoader(GLTFLoader, 'assets/MarsModel/mars.glb');
     // model is from https://solarsystem.nasa.gov/resources/2372/mars-3d-model/
     // use GTLFLoader from three.js and useLoader hook from react-three-fiber to load model
 
