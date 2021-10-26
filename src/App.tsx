@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-import MarsModel from "./components/Home/MarsModel/MarsModel";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { HomePage } from './pages/Home';
