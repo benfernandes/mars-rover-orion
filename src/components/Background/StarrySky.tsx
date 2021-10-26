@@ -32,7 +32,8 @@ interface PointStarProp
 
 const PointStar: React.FC<PointStarProp> = (props: PointStarProp) =>
 {
-    // Create small elements with css styling for the stars
+    // React use state so that if we change any of these attributes
+    // the single attribute will be refreshed and not all attributes
     const [randomPosition] = useState({
         x: Math.floor(Math.random() * window.screen.width),
         y: Math.floor(Math.random() * window.screen.height),
@@ -47,6 +48,7 @@ const PointStar: React.FC<PointStarProp> = (props: PointStarProp) =>
 
     const [randomAnimationDuration] = useState(Math.random() * durationVariance + durationMinimum);
 
+    // Create small elements with css styling for the stars
     return <div className='single-star' style={{
         top: randomPosition.y,
         left: randomPosition.x,
