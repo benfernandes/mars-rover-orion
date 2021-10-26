@@ -1,15 +1,15 @@
 import React, {useRef, Suspense} from "react";
 import {Canvas, useFrame, useLoader} from "react-three-fiber";
-import model from '../../../assets/MarsModel/mars.glb'
 import CameraControls from "./CameraControls";
 import './styles.scss'
 import { Html } from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {Mesh, Object3D, Vector3} from "three";
 
 const Mars = () => {
-    const planet = useRef();
+    const planet = useRef(new Object3D());
 
-    const { nodes } = useLoader(GLTFLoader, model);
+    const { nodes, materials } = useLoader(GLTFLoader, "assets/MarsModel/mars.glb");
     // model is from https://solarsystem.nasa.gov/resources/2372/mars-3d-model/
     // use GTLFLoader from three.js and useLoader hook from react-three-fiber to load model
 
@@ -17,16 +17,17 @@ const Mars = () => {
     useFrame(() => (planet.current.rotation.y += 0.001));
     // Adds rotation to planet
 
+    // @ts-ignore
     const Marker = (props) => {
-        const ref = useRef()
-
-        useFrame(() => (ref.current.rotation.y += 0.001));
+        // const ref = useRef()
+        //
+        // useFrame(() => (ref.current.rotation.y += 0.001));
 
         return (
             <group>
                 <mesh
                     {...props}
-                    ref={ref}
+                    // ref={ref}
                     scale={1}>
                     <sphereBufferGeometry args={[20, 20, 20]} />
                     <meshStandardMaterial color={0xffffff} />
@@ -43,6 +44,8 @@ const Mars = () => {
                 // Adding data from mars.glb to the geometry and material of the sphere
                 geometry={nodes.Cube008.geometry}
                 material={nodes.Cube008.material}>
+                {/*<sphereBufferGeometry args={[260, 260, 260]} />*/}
+                {/*<meshStandardMaterial color={0xffffff} />*/}
             </mesh>
             <Marker position={[280, 280, 280]} />
             <Html
@@ -59,7 +62,7 @@ const MarsModel = () => {
     return (
         <Canvas className="canvas">
             <CameraControls />
-            <directionalLight intensity={0.5} position={(0, 0, 1)}/>
+            <directionalLight intensity={0.5} position={new Vector3(0, 0, 1)}/>
             <ambientLight intensity={0.07} />
             <Suspense fallback="loading">
                 <Mars />
