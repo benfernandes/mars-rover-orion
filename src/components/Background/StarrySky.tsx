@@ -12,11 +12,9 @@ interface StarrySkyProps
 
 export const StarrySky: React.FC<StarrySkyProps> = (props: StarrySkyProps) =>
 {
-    const allStars = Array(props.numberOfStars).fill(null).map(() =>
-    <SingleStar
-        urls={props.imagesForStars}
-        maxSize={props.maxSize}
-    />);
+    const allStars = Array(props.numberOfStars).fill(null).map(() => props.imagesForStars ?
+        <ImageStar urls={props.imagesForStars}/> :
+        <PointStar maxSize={props.maxSize}/>);
 
     // The stars all being large on page refresh is a feature now, not a bug
 
@@ -27,22 +25,6 @@ export const StarrySky: React.FC<StarrySkyProps> = (props: StarrySkyProps) =>
     );
 }
 
-interface SingleStarProp
-{
-    // List of image urls to use for random stars to give variety
-    // If unused, then just use point light
-    urls?: Array<string>;
-    maxSize: number;
-}
-
-const SingleStar: React.FC<SingleStarProp> = (props: SingleStarProp) =>
-{
-    if (!props.urls)
-        return <PointStar maxSize={props.maxSize}/>;
-    else
-        return <ImageStar urls={props.urls}/>;
-}
-
 interface PointStarProp
 {
     maxSize: number;
@@ -51,19 +33,19 @@ interface PointStarProp
 const PointStar: React.FC<PointStarProp> = (props: PointStarProp) =>
 {
     // Create small elements with css styling for the stars
-    const [randomPosition, setPosition] = useState({
+    const [randomPosition] = useState({
         x: Math.floor(Math.random() * window.screen.width),
         y: Math.floor(Math.random() * window.screen.height),
     })
 
-    const [randomSize, setSize] = useState(Math.random() * props.maxSize);
+    const [randomSize] = useState(Math.random() * props.maxSize);
 
-    const [randomRotation, setRotation] = useState(Math.random() * 90);
+    const [randomRotation] = useState(Math.random() * 90);
 
     const durationVariance = 5;
     const durationMinimum = randomSize * 2;
 
-    const [randomAnimationDuration, setAnimationDuration] = useState(Math.random() * durationVariance + durationMinimum);
+    const [randomAnimationDuration] = useState(Math.random() * durationVariance + durationMinimum);
 
     return <div className='single-star' style={{
         top: randomPosition.x,
@@ -83,7 +65,7 @@ interface ImageStarProp
 // Not finished
 const ImageStar: React.FC<ImageStarProp> = (props: ImageStarProp) =>
 {
-    const chosenURL = props.urls[Math.floor(Math.random() * props.urls.length)];
+    const [chosenURL] = useState(props.urls[Math.floor(Math.random() * props.urls.length)]);
         
     return <img src={chosenURL}/>
 }
