@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const GalleryPage: React.FC = () => {
+const GalleryPage: React.FC = () => {
     return <div></div>;
 }
+
+export default GalleryPage
