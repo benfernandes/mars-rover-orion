@@ -70,7 +70,7 @@ const MarsModel = () => {
         <Canvas className="canvas"
                 camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}>
             {/*<CameraControls />*/}
-            <directionalLight intensity={0.5} position={new Vector3(0, 0, 1)}/>
+            <directionalLight intensity={0.5} position={[2000, 2000, 2000]}/>
             <ambientLight intensity={0.07} />
             <Suspense fallback="loading">
                 <Mars />
