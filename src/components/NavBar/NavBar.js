@@ -1,6 +1,11 @@
 import React, {useState} from "react";
 import {CSSTransition} from "react-transition-group";
 import { ReactComponent as MenuIcon } from "./icons/menuicon.svg"
+import { ReactComponent as GalleryIcon } from "./icons/galleryicon.svg"
+import { ReactComponent as RoverIcon } from "./icons/rovericon.svg"
+import { ReactComponent as GuessIcon } from "./icons/thinkingicon.svg"
+import { ReactComponent as HomeIcon } from "./icons/homeicon.svg"
+import { Link } from "react-router-dom";
 
 function NavBarFunction() {
     return (
@@ -36,7 +41,7 @@ function DropdownMenu() {
             </a>
         )
     }
-
+    console.log(activeMenu)
     return(
         <div className="dropdown" style={{height: menuHeight}}>
             <CSSTransition
@@ -47,11 +52,14 @@ function DropdownMenu() {
             >
                 <div className="menu">
                     <DropdownItem
-                        leftIcon="X"
-                        rightIcon="Y"
+                        leftIcon={<HomeIcon/>}
                         goToMenu="settings"
                     >
-                        My Profile</DropdownItem>
+                        Home </DropdownItem>
+                    <Link to={"/gallery"}><DropdownItem leftIcon={<GalleryIcon/>}>Gallery</DropdownItem></Link>
+                    <Link to={"/roverDetails"}><DropdownItem leftIcon={<RoverIcon/>}>Rover Details</DropdownItem></Link>
+                    <Link to={"/RovGuessr"}><DropdownItem leftIcon={<GuessIcon/>}>RovGuessr</DropdownItem></Link>
+
                 </div>
             </CSSTransition>
 
@@ -63,12 +71,7 @@ function DropdownMenu() {
             >
                 <div className="menu">
                     <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem>Settings</DropdownItem>
+
                 </div>
             </CSSTransition>
         </div>

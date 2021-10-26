@@ -1,9 +1,6 @@
 body {
   margin: 0;
-  background: #151616;
-  font-family: roboto;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -14,7 +11,7 @@ code {
 :root {
   --bg:  #242526;
   --bg-accent: #484a4d;
-  --text-color: #dadce1;
+  --text-color: #ffffff;
   --nav-size: 60px;
   --border: 1px solid #474a4d;
   --border-radius: 8px;
@@ -34,12 +31,10 @@ a {
 
 /* Top Navigation Bar */
 
-/* <nav> */
+
 .navbar {
   height: var(--nav-size);
-  background-color: var(--bg);
   padding: 0 1rem;
-  border-bottom: var(--border);
 }
 
 /* <ul> */
@@ -76,7 +71,7 @@ a {
 }
 
 .icon-button svg {
-  fill: var(--text-color);
+  fill: black;
   width: 20px;
   height: 20px;
 }

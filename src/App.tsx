@@ -12,9 +12,8 @@ import NavBarFunc from "./components/NavBar/NavBar";
 
 function App() {
   return (
-    <div>
-    <NavBarFunc/>
     <Router>
+        <NavBarFunc/>
         {/* Components that are on all pages go outside of switch */}
         <Switch>
             <Route path="">
@@ -31,8 +30,6 @@ function App() {
             </Route>
         </Switch>
     </Router>
-
-    </div>
   );
 }
 
