@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const RoverDetails: React.FC = () => {
+export const RoverDetailsPage: React.FC = () => {
     return <div></div>;
 }

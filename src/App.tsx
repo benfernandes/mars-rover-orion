@@ -3,7 +3,7 @@ import './App.scss';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { RovGuessr } from './pages/RovGuessr';
-import { RoverDetails } from './pages/RoverDetails';
+import { RoverDetailsPage } from './pages/RoverDetailsPage';
 import GalleryPage from "./pages/GalleryPage";
 import HomePage from "./pages/HomePage";
 
@@ -22,7 +22,7 @@ function App() {
                 <RovGuessr/>
             </Route>
             <Route path="/roverDetails">
-                <RoverDetails/>
+                <RoverDetailsPage/>
             </Route>
         </Switch>
     </Router>
