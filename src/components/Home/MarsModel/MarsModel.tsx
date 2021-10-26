@@ -4,6 +4,8 @@ import './styles.scss'
 import { Html } from "@react-three/drei";
 import { Object3D } from "three";
 import Mars from "./Mars";
+import { ResizeObserver } from '@juggle/resize-observer';
+
 
 const Scene = () => {
     const planet = useRef(new Object3D());
@@ -13,8 +15,7 @@ const Scene = () => {
 
 
     //  TODO 47 remove @ts-ignore
-    // @ts-ignore
-    const Marker = (props) => (
+    const Marker = (props : any) => (
         <mesh
             {...props}
             scale={1}>
@@ -40,7 +41,8 @@ const Scene = () => {
 const MarsModel = () => {
     return (
         <Canvas className="canvas"
-                camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}>
+                camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}
+                resize={{ polyfill: ResizeObserver}}>
             <directionalLight intensity={0.5} position={[2000, 2000, 2000]}/>
             <ambientLight intensity={0.07} />
             <Suspense fallback="loading">
