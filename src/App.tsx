@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GalleryPage from "./pages/GalleryPage";
 import HomePage from "./pages/HomePage";
 import RoverDetailsPage from './pages/RoverDetailsPage';
