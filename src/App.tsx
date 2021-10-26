@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
-import Sphere from "./components/Home/Sphere/Sphere";
+import MarsModel from "./components/Home/MarsModel/MarsModel";
 
 function App() {
   return (
     <div className="App">
-        <Sphere />
+        <MarsModel />
     </div>
   );
 }

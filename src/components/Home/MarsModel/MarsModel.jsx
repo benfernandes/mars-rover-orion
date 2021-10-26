@@ -1,9 +1,7 @@
-// noinspection CommaExpressionJS
-
 import React, {useRef, Suspense} from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import {Canvas, useFrame, useLoader} from "react-three-fiber";
-import model from '../../../assets/Sphere/mars.glb'
+import model from '../../../assets/MarsModel/mars.glb'
 import CameraControls from "./CameraControls";
 import './styles.scss'
 import { Html } from "@react-three/drei";
@@ -49,7 +47,7 @@ const Mars = () => {
             <Marker position={[280, 280, 280]} />
             <Html
                 position={[340, 340, 340]}>
-                <div className="label">Here's where I am!</div>
+                <div className="marker-label">Here's where I am!</div>
             </Html>
         </group>
 
@@ -57,7 +55,7 @@ const Mars = () => {
 };
 
 
-const Sphere = () => {
+const MarsModel = () => {
     return (
         <Canvas className="canvas">
             <CameraControls />
@@ -70,4 +68,4 @@ const Sphere = () => {
     )
 }
 
-export default Sphere;
+export default MarsModel;
