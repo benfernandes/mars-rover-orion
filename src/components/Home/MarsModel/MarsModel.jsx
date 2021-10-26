@@ -1,10 +1,10 @@
 import React, {useRef, Suspense} from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import {Canvas, useFrame, useLoader} from "react-three-fiber";
 import model from '../../../assets/MarsModel/mars.glb'
 import CameraControls from "./CameraControls";
 import './styles.scss'
 import { Html } from "@react-three/drei";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 const Mars = () => {
     const planet = useRef();
