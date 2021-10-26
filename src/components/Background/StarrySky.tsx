@@ -48,8 +48,8 @@ const PointStar: React.FC<PointStarProp> = (props: PointStarProp) =>
     const [randomAnimationDuration] = useState(Math.random() * durationVariance + durationMinimum);
 
     return <div className='single-star' style={{
-        top: randomPosition.x,
-        left: randomPosition.y,
+        top: randomPosition.y,
+        left: randomPosition.x,
         width: randomSize,
         height: randomSize,
         transform: `rotate(${randomRotation}deg)`,
