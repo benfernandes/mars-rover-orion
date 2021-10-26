@@ -3,9 +3,9 @@ import './App.scss';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { RovGuessr } from './pages/RovGuessr';
-import { RoverDetailsPage } from './pages/RoverDetailsPage';
 import GalleryPage from "./pages/GalleryPage";
 import HomePage from "./pages/HomePage";
+import RoverDetailsPage from './pages/RoverDetailsPage';
 
 function App() {
   return (
