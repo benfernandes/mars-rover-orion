@@ -21,11 +21,12 @@ const CameraControls : React.FC = () => {
     } = useThree();
 
     // Ref to the controls, so that we can update them on every frame with useFrame
-    const controls = useRef(new OrbitControls(camera, domElement));
+    const controls = useRef();
 
     camera.position.z = 999;
     //zoom
 
+    // @ts-ignore
     useFrame(() => controls.current.update());
 
     return (
