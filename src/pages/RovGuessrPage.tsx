@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const RovGuessr: React.FC = () => {
+const RovGuessrPage: React.FC = () => {
     return <div></div>;
 }
+
+export default RovGuessrPage
