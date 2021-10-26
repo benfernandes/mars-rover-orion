@@ -6,13 +6,13 @@ import { HomePage } from './pages/Home';
 import { GalleryPage } from './pages/Gallery';
 import { RovGuessr } from './pages/RovGuessr';
 import { RoverDetails } from './pages/RoverDetails';
-import { StarySky } from './components/Background/StarySky';
+import { StarrySky } from './components/Background/StarrySky';
 
 function App() {
   return (
     <Router>
         {/* Components that are on all pages go outside of switch */}
-        <StarySky numberOfStars={250} maxSize={3}/>
+        <StarrySky numberOfStars={250} maxSize={3}/>
         <Switch>
             <Route path="">
                 <HomePage/>

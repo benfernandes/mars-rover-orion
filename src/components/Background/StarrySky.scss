@@ -2,6 +2,7 @@
     position: fixed;
     width: 10px;
     height: 10px;
+    border-radius: 25%;
     background-color: rgb(255, 233, 205);
 
     animation: star-twinkle infinite;
@@ -12,9 +13,12 @@
         transform: scale(1.0);
     }
     10% {
-        transform: scale(2.0);
+        transform: scale(1.7);
     }
-    20%, 100% {
+    15% {
+        transform: scale(0.5);
+    }
+    20% {
         transform: scale(1.0);
     }
 }
