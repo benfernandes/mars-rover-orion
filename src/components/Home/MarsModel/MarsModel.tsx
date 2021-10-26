@@ -67,17 +67,15 @@ const Mars = () => {
 const MarsModel = () => {
     // @ts-ignore
     return (
-        <div className="mars-container">
-            <Canvas className="canvas"
-                    camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}>
-                {/*<CameraControls />*/}
-                <directionalLight intensity={0.5} position={new Vector3(0, 0, 1)}/>
-                <ambientLight intensity={0.07} />
-                <Suspense fallback="loading">
-                    <Mars />
-                </Suspense>
-            </Canvas>
-        </div>
+        <Canvas className="canvas"
+                camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}>
+            {/*<CameraControls />*/}
+            <directionalLight intensity={0.5} position={new Vector3(0, 0, 1)}/>
+            <ambientLight intensity={0.07} />
+            <Suspense fallback="loading">
+                <Mars />
+            </Suspense>
+        </Canvas>
     )
 }
 
