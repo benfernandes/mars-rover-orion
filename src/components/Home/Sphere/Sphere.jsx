@@ -6,6 +6,7 @@ import {Canvas, useFrame, useLoader} from "react-three-fiber";
 import model from '../../../assets/Sphere/mars.glb'
 import CameraControls from "./CameraControls";
 import './styles.scss'
+import { Html } from "@react-three/drei";
 
 const Mars = () => {
     const planet = useRef();
@@ -29,8 +30,8 @@ const Mars = () => {
                     {...props}
                     ref={ref}
                     scale={1}>
-                    <sphereBufferGeometry args={[100, 100, 100]} />
-                    <meshStandardMaterial color={'hotpink'} />
+                    <sphereBufferGeometry args={[20, 20, 20]} />
+                    <meshStandardMaterial color={0xffffff} />
                 </mesh>
             </group>
         )
@@ -45,7 +46,11 @@ const Mars = () => {
                 geometry={nodes.Cube008.geometry}
                 material={nodes.Cube008.material}>
             </mesh>
-            <Marker position={[250, 250, 250]} />
+            <Marker position={[280, 280, 280]} />
+            <Html
+                position={[340, 340, 340]}>
+                <div className="label">Here's where I am!</div>
+            </Html>
         </group>
 
     );
