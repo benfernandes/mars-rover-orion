@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RovGuessrPage: React.FC = () => {
+const RovGuessrPage = () => {
     return <div></div>;
 }
 

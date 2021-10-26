@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RoverDetailsPage: React.FC = () => {
+const RoverDetailsPage = () => {
     return <div></div>;
 }
 

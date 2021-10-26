@@ -14,7 +14,7 @@ declare global {
     }
 }
 
-const CameraControls : React.FC = () => {
+const CameraControls = () => {
     const {
         camera,
         gl: { domElement },

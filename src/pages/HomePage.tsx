@@ -1,7 +1,7 @@
 import React from 'react';
 import MarsModel from "../components/Home/MarsModel/MarsModel";
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
     return <div>
         <MarsModel />
     </div>;

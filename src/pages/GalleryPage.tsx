@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GalleryPage: React.FC = () => {
+const GalleryPage = () => {
     return <div></div>;
 }
 
