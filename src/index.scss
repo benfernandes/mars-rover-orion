@@ -6,7 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: black;
+// Globalize colours in a scss file for all places to use
+  background-color: #05010e;
 }
 
 code {

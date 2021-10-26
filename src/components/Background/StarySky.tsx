@@ -4,8 +4,9 @@ import './StarySky.scss'
 interface StarySkyProps
 {
     numberOfStars: number;
+    maxSize: number;
 
-    imagesForStars?: SingleStarProp;
+    imagesForStars?: Array<string>;
 }
 
 export const StarySky: React.FC<StarySkyProps> = (props: StarySkyProps) =>
@@ -14,7 +15,7 @@ export const StarySky: React.FC<StarySkyProps> = (props: StarySkyProps) =>
 
     for (let i = 0; i < props.numberOfStars; i++)
     {
-        allStars.push(<SingleStar urls={props.imagesForStars?.urls}/>)
+        allStars.push(<SingleStar urls={props.imagesForStars} maxSize={props.maxSize}/>)
     }
 
     return (
@@ -29,21 +30,29 @@ interface SingleStarProp
     // List of image urls to use for random stars to give variety
     // If unused, then just use point light
     urls?: Array<string>;
+    maxSize: number;
 }
 
-const SingleStar: React.FC<SingleStarProp> = ({urls = []}: SingleStarProp) =>
+const SingleStar: React.FC<SingleStarProp> = (props: SingleStarProp) =>
 {
-    if (urls.length === 0)
+    if (!props.urls)
     {
         // Create small elements with css styling for the stars
         const randomPositionX = Math.floor(Math.random() * window.screen.width);
         const randomPositionY = Math.floor(Math.random() * window.screen.height);
 
-        return <div className='single-star' style={{top: randomPositionY, left: randomPositionX}}></div>
+        const randomSize = Math.random() * props.maxSize;
+
+        return <div className='single-star' style={{
+            top: randomPositionY,
+            left: randomPositionX,
+            width: randomSize,
+            height: randomSize
+            }}></div>
     }
     else
     {
-        const chosenURL = urls[Math.floor(Math.random() * urls.length)];
+        const chosenURL = props.urls[Math.floor(Math.random() * props.urls.length)];
 
         return <img src={chosenURL}/>
     }

@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
         {/* Components that are on all pages go outside of switch */}
-        <StarySky numberOfStars={100}/>
+        <StarySky numberOfStars={250} maxSize={3}/>
         <Switch>
             <Route path="">
                 <HomePage/>
