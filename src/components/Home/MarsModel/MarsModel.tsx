@@ -9,7 +9,7 @@ import {Mesh, Object3D, Vector3} from "three";
 const Mars = () => {
     const planet = useRef(new Object3D());
 
-    const { nodes, materials } = useLoader(GLTFLoader, "assets/MarsModel/mars.glb");
+    const { nodes } = useLoader(GLTFLoader, "assets/MarsModel/mars.glb");
     // model is from https://solarsystem.nasa.gov/resources/2372/mars-3d-model/
     // use GTLFLoader from three.js and useLoader hook from react-three-fiber to load model
 
@@ -36,14 +36,19 @@ const Mars = () => {
         )
     }
 
+    // @ts-ignore
     return (
         <group ref={planet}>
             <mesh
                 visible={true}
                 position={[0, 0, 0]}
                 // Adding data from mars.glb to the geometry and material of the sphere
-                geometry={nodes.Cube008.geometry}
-                material={nodes.Cube008.material}>
+                geometry={
+                    // @ts-ignore
+                    nodes.Cube008.geometry}
+                material={
+                    // @ts-ignore
+                    nodes.Cube008.material}>
                 {/*<sphereBufferGeometry args={[260, 260, 260]} />*/}
                 {/*<meshStandardMaterial color={0xffffff} />*/}
             </mesh>
