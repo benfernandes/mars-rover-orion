@@ -26,13 +26,20 @@ const Scene = () => {
 
     return (
         <group ref={planet}>
-            <Mars />
-            <Marker position={[280, 280, 280]} />
-            <Html
-                position={[340, 340, 340]}
-                occlude>
-                <div className="marker-label">Here's where I am!</div>
-            </Html>
+            <mesh
+                // Sets initial rotation
+                rotation={[0, 4.5, 0]}>
+                <Mars />
+                <Marker position={[280, 280, 280]} />
+                <Html
+                    position={[360, 360, 360]}
+                    occlude
+                    center
+                    distanceFactor={1200}
+                    >
+                    <div className="marker-label">Here's where I am!</div>
+                </Html>
+            </mesh>
         </group>
     );
 };
