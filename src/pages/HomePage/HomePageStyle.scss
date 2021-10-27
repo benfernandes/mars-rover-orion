@@ -3,12 +3,13 @@ $background-stars: #ffe9cd;
 $background-red-brown: #3A1403;
 $text-off-white: #F0E7E7;
 $accent-purple: #8E6C88;
-$accent-orange: #99350B;
-$accent-teal: #416165;
+$accent-orange: rgba(153, 53, 11, 0.37);
+$accent-teal: rgba(65, 97, 101, 0.32);
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 //Title section
+// TODO Add media enquiry for mars model
 
 .page-container {
   position: relative;
@@ -32,14 +33,14 @@ $accent-teal: #416165;
   //border-style: solid;
   font-size: 3.5em;
   max-width: 250px;
-  margin: 130px auto;
+  margin: 80px auto;
 }
 
 //Mars model
 
 .mars-model-wrapper {
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 500px;
 }
 
 .mars-model-container {
@@ -49,9 +50,8 @@ $accent-teal: #416165;
 }
 
 //Intro Section
+
 .intro-section-container {
-  color: $text-off-white;
-  padding: 10px;
-  max-width: 800px;
+  margin: 0 10px;
 }
 

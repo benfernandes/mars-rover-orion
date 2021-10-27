@@ -4,13 +4,18 @@ $background-red-brown: #3A1403;
 $text-off-white: #F0E7E7;
 $accent-purple: #8E6C88;
 $accent-orange: #99350B;
-$accent-teal: #416165;
+$accent-teal: rgba(65, 97, 101, 0.21);
 
 * {
   box-sizing: border-box;
 }
 
-div.p {
+div p {
   color: $text-off-white;
-  background-color: #99350B;
+  margin-block: 0;
+  background-color: $accent-teal;
+  padding: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
 }
