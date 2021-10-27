@@ -25,7 +25,7 @@ const DropdownMenu : React.FC = () => {
     const [activeMenu, setActiveMenu] = useState("main");
 
 
-    interface Dropdownitemprops{
+    interface DropDownItemProps{
         children? : React.ReactNode;
         goToMenu? : string ;
         leftIcon? : ReactElement;
@@ -33,7 +33,7 @@ const DropdownMenu : React.FC = () => {
     }
 
 
-    const DropdownItem: React.FC <Dropdownitemprops> = (props: Dropdownitemprops) => {
+    const DropdownItem: React.FC <DropDownItemProps> = (props: DropDownItemProps) => {
         return(
             <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
@@ -49,8 +49,8 @@ const DropdownMenu : React.FC = () => {
             <CSSTransition
                 in={activeMenu === "main"}
                 unmountOnExit
-                classNames="menu=primary"
-                timeout={100}
+                classNames="menu-primary"
+                timeout={500}
             >
                 <div className="menu">
                     <DropdownItem
@@ -90,13 +90,13 @@ const Navbar: React.FC  =(props) => {
     )
 }
 
-interface NavItemprops{
+interface NavItemProps{
     children: ReactNode;
     icon: ReactElement;
 }
 
 
-const NavItem : React.FC<NavItemprops> = (props : NavItemprops) => {
+const NavItem : React.FC<NavItemProps> = (props : NavItemProps) => {
     const [open, setOpen] = useState(false);
 
     return(
