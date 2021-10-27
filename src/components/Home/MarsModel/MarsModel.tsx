@@ -1,10 +1,12 @@
-import React, {useRef, Suspense} from "react";
 import {Canvas, useFrame } from "@react-three/fiber";
 import './styles.scss'
 import { Html } from "@react-three/drei";
-import { Object3D } from "three";
 import Mars from "./Mars";
 import { ResizeObserver } from '@juggle/resize-observer';
+import React, {useRef, Suspense, useState, useEffect} from 'react';
+import {Object3D, Vector3} from 'three';
+import { RoverPositionRepo, Mission } from '../../../APIs/RoverPositionRepo';
+import LatLongToVec3 from './LatLongToVec3';
 
 
 const Scene = () => {
@@ -23,19 +25,27 @@ const Scene = () => {
         </mesh>
     )
 
+    const sizeOfSphere = 15;
+    const [roverPosition, setRoverPosition] = useState(new Vector3(0, 0, 0));
+
+    useEffect(() => {
+        RoverPositionRepo.GetRoverPosition(Mission.Perseverance).then(latLong => {
+            const cartesianPosition = LatLongToVec3(latLong.lat, latLong.lon);
+            setRoverPosition(cartesianPosition);
+        });
+    }, [])
+    
+
     return (
         <group ref={planet}>
             <mesh
                 // Sets initial rotation
-                rotation={[0, 4.5, 0]}>
+                rotation={[0, 3.3, 0]}>
                 <Mars />
-                <Marker position={[280, 280, 280]} />
+                <Marker position={roverPosition.clone().multiplyScalar(490)} />
                 <Html
-                    position={[360, 360, 360]}
-                    occlude
-                    center
-                    distanceFactor={1200}
-                    >
+                    position={roverPosition.clone().multiplyScalar(540)}
+                    occlude>
                     <div className="marker-label">Here's where I am!</div>
                 </Html>
             </mesh>
