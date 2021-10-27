@@ -5,13 +5,12 @@ import Mars from "./Mars";
 import { ResizeObserver } from '@juggle/resize-observer';
 import React, {useRef, Suspense, useState, useEffect} from 'react';
 import {Object3D, Vector3} from 'three';
-import { RoverPositionRepo, Mission } from '../../../APIs/RoverPositionRepo';
+import { getRoverPosition, Mission } from '../../../APIs/RoverPositionRepo';
 import LatLongToVec3 from './LatLongToVec3';
-
 
 const Scene = () => {
     const planet = useRef(new Object3D());
-    
+
     useFrame(() => (planet.current.rotation.y += 0.005));
     // Adds rotation to planet
 
@@ -29,7 +28,7 @@ const Scene = () => {
     const [roverPosition, setRoverPosition] = useState(new Vector3(0, 0, 0));
 
     useEffect(() => {
-        RoverPositionRepo.GetRoverPosition(Mission.Perseverance).then(latLong => {
+        getRoverPosition(Mission.Perseverance).then(latLong => {
             const cartesianPosition = LatLongToVec3(latLong.lat, latLong.lon);
             setRoverPosition(cartesianPosition);
         });
