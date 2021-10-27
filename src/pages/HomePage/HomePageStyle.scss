@@ -1,0 +1,46 @@
+$background-purple: #05010E;
+$background-stars: #ffe9cd;
+$background-red-brown: #3A1403;
+$text-off-white: #F0E7E7;
+$accent-purple: #8E6C88;
+$accent-orange: #99350B;
+$accent-teal: #416165;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+.page-container {
+  position: relative;
+}
+
+.title-container {
+  font-family: 'Space Mono', monospace;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+.title-container h1{
+  //background-color: $accent-purple;
+  color: $text-off-white;
+  padding: 10px;
+  border-radius: 10px;
+  //border-style: solid;
+  font-size: 3em;
+  max-width: 250px;
+  margin: 180px auto;
+}
+
+.mars-model-wrapper {
+  width: 600px;
+  height: 600px;
+}
+
+.mars-model-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
