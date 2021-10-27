@@ -20,7 +20,7 @@ export class RoverPositionRepo
         const response = await fetch(`https://mars.nasa.gov/mmgis-maps/M20/Layers/json/${mission}_waypoints_current.json`);
         const json = await response.json();
 
-        return (await <RoverPosition>json).features[0].properties;
+        return (json as RoverPosition).features[0].properties;
     }
 
     static async GetRoverWaypoints(mission: Mission)
@@ -28,6 +28,6 @@ export class RoverPositionRepo
         const response = await fetch(`https://mars.nasa.gov/mmgis-maps/M20/Layers/json/${mission}_waypoints.json`);
         const json = await response.json();
 
-        return (await <RoverPosition>json).features;
+        return (json as RoverPosition).features;
     }
 }
