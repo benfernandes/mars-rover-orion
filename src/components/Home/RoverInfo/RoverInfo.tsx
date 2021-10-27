@@ -15,7 +15,7 @@ const RoverInfo = () => {
             </div>
 
             <div className="rover-info">
-                <div className="rover-details">
+                <div className="rover-details reverse">
                     <p className={"rover-name"}>Rover Name</p>
                     <img className="rover-profile-img" src={"/assets/placeholder.jpg"} />
                 </div>

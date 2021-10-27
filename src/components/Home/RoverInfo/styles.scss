@@ -32,9 +32,17 @@ $accent-teal: rgba(65, 97, 101, 0.32);
 }
 
 .rover-details {
-  display: inline;
 }
 
 .rover-name {
-  display: inline;
+  display: inline-block;
+  position: relative;
+}
+
+.reverse {
+}
+
+.reverse img {
+  margin-left: 20px;
+  margin-right: 0;
 }
