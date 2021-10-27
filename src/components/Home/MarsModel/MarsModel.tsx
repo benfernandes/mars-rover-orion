@@ -12,7 +12,7 @@ import LatLongToVec3 from './LatLongToVec3';
 const Scene = () => {
     const planet = useRef(new Object3D());
     
-    useFrame(() => (planet.current.rotation.y += 0.002));
+    useFrame(() => (planet.current.rotation.y += 0.005));
     // Adds rotation to planet
 
 
