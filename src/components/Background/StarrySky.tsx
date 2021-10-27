@@ -9,7 +9,7 @@ interface StarrySkyProps
     imagesForStars?: string[];
 }
 
-export const StarrySky: React.FC<StarrySkyProps> = (props: StarrySkyProps) =>
+const StarrySky: React.FC<StarrySkyProps> = (props: StarrySkyProps) =>
 {
     const allStars = Array(props.numberOfStars).fill(null).map(() => props.imagesForStars ?
         <ImageStar urls={props.imagesForStars}/> :
@@ -23,6 +23,8 @@ export const StarrySky: React.FC<StarrySkyProps> = (props: StarrySkyProps) =>
         </div>
     );
 }
+
+export default StarrySky;
 
 interface PointStarProp
 {

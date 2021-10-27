@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import StarrySky from './components/Background/StarrySky'
 import GalleryPage from './pages/GalleryPage';
 import HomePage from './pages/HomePage';
 import RoverDetailsPage from './pages/RoverDetailsPage';
