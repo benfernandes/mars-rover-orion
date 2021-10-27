@@ -8,6 +8,14 @@ import {Object3D, Vector3} from 'three';
 import { getRoverPosition, Mission } from '../../../APIs/RoverPositionRepo';
 import latLongToVec3 from './LatLongToVec3';
 
+const Marker = (props: JSX.IntrinsicElements['mesh']) => (
+    <mesh
+        {...props}
+        scale={1}>
+        <sphereBufferGeometry args={[20, 20, 20]} />
+        <meshStandardMaterial color={0xffffff} />
+    </mesh>
+)
 
 const Scene = () => {
     const planet = useRef(new Object3D());
@@ -15,8 +23,7 @@ const Scene = () => {
     useFrame(() => (planet.current.rotation.y += 0.005));
     // Adds rotation to planet
 
-
-    const Marker = (props: JSX.IntrinsicElements['mesh']) => (
+    const Marker = (props : any) => (
         <mesh
             {...props}
             scale={1}>
@@ -35,7 +42,6 @@ const Scene = () => {
         });
     }, [])
     
-
     return (
         <group ref={planet}>
             <mesh
