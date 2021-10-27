@@ -23,15 +23,6 @@ const Scene = () => {
     useFrame(() => (planet.current.rotation.y += 0.005));
     // Adds rotation to planet
 
-    const Marker = (props : any) => (
-        <mesh
-            {...props}
-            scale={1}>
-            <sphereBufferGeometry args={[20, 20, 20]} />
-            <meshStandardMaterial color={0xffffff} />
-        </mesh>
-    )
-
     const sizeOfSphere = 15;
     const [roverPosition, setRoverPosition] = useState(new Vector3(0, 0, 0));
 
