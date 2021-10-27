@@ -7,6 +7,7 @@ import Mars from "./Mars";
 import { ResizeObserver } from '@juggle/resize-observer';
 
 
+
 const Scene = () => {
     const planet = useRef(new Object3D());
 
@@ -14,7 +15,7 @@ const Scene = () => {
     // Adds rotation to planet
 
 
-    const Marker = (props : any) => (
+    const Marker = (props: JSX.IntrinsicElements['mesh']) => (
         <mesh
             {...props}
             scale={1}>
