@@ -14,7 +14,6 @@ const Scene = () => {
     // Adds rotation to planet
 
 
-    //  TODO 47 remove @ts-ignore
     const Marker = (props : any) => (
         <mesh
             {...props}
