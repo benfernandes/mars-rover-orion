@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { HomePage } from './pages/Home';
-import { GalleryPage } from './pages/Gallery';
-import { RovGuessr } from './pages/RovGuessr';
-import { RoverDetails } from './pages/RoverDetails';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import GalleryPage from './pages/GalleryPage';
+import HomePage from './pages/HomePage';
+import RoverDetailsPage from './pages/RoverDetailsPage';
+import RovGuessrPage from './pages/RovGuessrPage';
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
                 <GalleryPage/>
             </Route>
             <Route path="/RovGuessr">
-                <RovGuessr/>
+                <RovGuessrPage/>
             </Route>
             <Route path="/roverDetails">
-                <RoverDetails/>
+                <RoverDetailsPage/>
             </Route>
         </Switch>
     </Router>
