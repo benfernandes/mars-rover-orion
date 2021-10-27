@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {ReactChildren, ReactElement, ReactNode, useState} from "react";
 import {CSSTransition} from "react-transition-group";
 import { ReactComponent as MenuIcon } from "./icons/menuicon.svg"
 import { ReactComponent as GalleryIcon } from "./icons/galleryicon.svg"
@@ -7,7 +7,7 @@ import { ReactComponent as GuessIcon } from "./icons/thinkingicon.svg"
 import { ReactComponent as HomeIcon } from "./icons/homeicon.svg"
 import { Link } from "react-router-dom";
 
-function NavBarFunction() {
+const NavBarFunction : React.FC = () => {
     return (
         <Navbar>
             <NavItem icon={<MenuIcon/>}>
@@ -20,18 +20,20 @@ function NavBarFunction() {
 }
 
 
-function DropdownMenu() {
+const DropdownMenu : React.FC = () => {
 
     const [activeMenu, setActiveMenu] = useState("main");
-    const [menuHeight, setMenuHeight] = useState(null);
 
-    function calcHeight(el) {
-        const height = el.offsetHeight;
-        setMenuHeight(height);
+
+    interface Dropdownitemprops{
+        children? : React.ReactNode;
+        goToMenu? : string ;
+        leftIcon? : ReactElement;
+        rightIcon? : ReactElement;
     }
 
 
-    function DropdownItem(props){
+    const DropdownItem: React.FC <Dropdownitemprops> = (props: Dropdownitemprops) => {
         return(
             <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
@@ -41,14 +43,14 @@ function DropdownMenu() {
             </a>
         )
     }
-    console.log(activeMenu)
+
     return(
-        <div className="dropdown" style={{height: menuHeight}}>
+        <div className="dropdown" >
             <CSSTransition
                 in={activeMenu === "main"}
                 unmountOnExit
                 classNames="menu=primary"
-                onEnter={calcHeight}
+                timeout={100}
             >
                 <div className="menu">
                     <DropdownItem
@@ -79,7 +81,8 @@ function DropdownMenu() {
     )
 }
 
-function Navbar(props){
+
+const Navbar: React.FC  =(props) => {
     return(
         <nav className="navbar">
             <ul className="navbar-nav"> {props.children} </ul>
@@ -87,7 +90,13 @@ function Navbar(props){
     )
 }
 
-function NavItem(props){
+interface NavItemprops{
+    children: ReactNode;
+    icon: ReactElement;
+}
+
+
+const NavItem : React.FC<NavItemprops> = (props : NavItemprops) => {
     const [open, setOpen] = useState(false);
 
     return(
