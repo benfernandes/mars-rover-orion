@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import './styles.scss'
-import AllImages from "./AllImages";
 import {ReactComponent as Left} from "./left.svg";
 import {ReactComponent as Right} from "./right.svg";
 
-// @ts-ignore
-const PhotoGallery = ({ slides }) => {
+const PhotoGallery = ({ slides }: {slides: Array<{image:string}>}) => {
 
     const [current, setCurrent] = useState(0);
     const length = slides.length
@@ -20,9 +18,9 @@ const PhotoGallery = ({ slides }) => {
 
     return (
         <div className="SliderImages">
-            {<Left className="left-arrow" onClick={prevSlide}/>}
-            {<Right className="right-arrow" onClick={nextSlide}/>}
-            {AllImages.map((images, index) => {
+            <Left className="left-arrow" onClick={prevSlide}/>
+            <Right className="right-arrow" onClick={nextSlide}/>
+            {slides.map((images, index) => {
                 return (
                     <div className={index === current ? "slide-active" : "slide"} key={index}>
                         {index === current && (<img src={images.image} alt="x" className="singleImage"/>)}
