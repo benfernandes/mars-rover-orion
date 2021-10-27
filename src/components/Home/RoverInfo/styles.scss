@@ -3,5 +3,38 @@ $background-stars: #ffe9cd;
 $background-red-brown: #3A1403;
 $text-off-white: #F0E7E7;
 $accent-purple: #8E6C88;
-$accent-orange: rgba(153, 53, 11, 0.37);
+$accent-orange: rgb(153, 53, 11);
 $accent-teal: rgba(65, 97, 101, 0.32);
+
+.rover-info-wrapper {
+  max-width: 800px;
+  background-color: $accent-teal;
+  border-radius: 10px;
+  color: $text-off-white;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+
+.rover-profile-img {
+  width: 100px;
+  height: 100px;
+  border: solid 5px $accent-purple;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.rover-info {
+  border: solid 1px $accent-orange;
+  padding: 20px;
+  margin: 20px 20px;
+  border-radius: 10px;
+}
+
+.rover-details {
+  display: inline;
+}
+
+.rover-name {
+  display: inline;
+}
