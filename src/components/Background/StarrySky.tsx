@@ -1,4 +1,3 @@
-import { sign } from 'crypto';
 import React, { ReactElement, useState } from 'react';
 import './StarrySky.scss'
 
