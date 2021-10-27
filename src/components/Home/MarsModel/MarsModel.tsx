@@ -59,8 +59,8 @@ const MarsModel = () => {
         <Canvas className="canvas"
                 camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}
                 resize={{ polyfill: ResizeObserver}}>
-            <directionalLight intensity={0.5} position={[2000, 2000, 2000]}/>
-            <ambientLight intensity={0.07} />
+            <directionalLight intensity={0.3} position={[-2000, 1000, 2000]}/>
+            <ambientLight intensity={0.02} />
             <Suspense fallback="loading">
                 <Scene />
             </Suspense>
