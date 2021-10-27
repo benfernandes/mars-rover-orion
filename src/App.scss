@@ -1,3 +1,18 @@
 .App {
   background-color: #0F0326;
 }
+
+.wrong-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  color: white;
+}
+
+.wrong-page img {
+  margin: 20px;
+  height: 20vh;
+}
