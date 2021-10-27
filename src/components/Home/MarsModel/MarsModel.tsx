@@ -6,7 +6,7 @@ import { ResizeObserver } from '@juggle/resize-observer';
 import React, {useRef, Suspense, useState, useEffect} from 'react';
 import {Object3D, Vector3} from 'three';
 import { getRoverPosition, Mission } from '../../../APIs/RoverPositionRepo';
-import LatLongToVec3 from './LatLongToVec3';
+import latLongToVec3 from './LatLongToVec3';
 
 
 const Scene = () => {
@@ -30,7 +30,7 @@ const Scene = () => {
 
     useEffect(() => {
         getRoverPosition(Mission.Perseverance).then(latLong => {
-            const cartesianPosition = LatLongToVec3(latLong.lat, latLong.lon);
+            const cartesianPosition = latLongToVec3(latLong.lat, latLong.lon);
             setRoverPosition(cartesianPosition);
         });
     }, [])

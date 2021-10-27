@@ -1,6 +1,6 @@
 import { Vector3 } from "three";
 
-export default function LatLongToVec3(latitude: number, longitude: number): Vector3
+export default function latLongToVec3(latitude: number, longitude: number): Vector3
 {
     latitude = Math.PI / 2 - latitude;
 
