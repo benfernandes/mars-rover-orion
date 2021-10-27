@@ -6,23 +6,20 @@ import { Object3D } from "three";
 import Mars from "./Mars";
 import { ResizeObserver } from '@juggle/resize-observer';
 
-
+const Marker = (props: JSX.IntrinsicElements['mesh']) => (
+    <mesh
+        {...props}
+        scale={1}>
+        <sphereBufferGeometry args={[20, 20, 20]} />
+        <meshStandardMaterial color={0xffffff} />
+    </mesh>
+)
 
 const Scene = () => {
     const planet = useRef(new Object3D());
 
     useFrame(() => (planet.current.rotation.y += 0.002));
     // Adds rotation to planet
-
-
-    const Marker = (props: JSX.IntrinsicElements['mesh']) => (
-        <mesh
-            {...props}
-            scale={1}>
-            <sphereBufferGeometry args={[20, 20, 20]} />
-            <meshStandardMaterial color={0xffffff} />
-        </mesh>
-    )
 
     return (
         <group ref={planet}>
