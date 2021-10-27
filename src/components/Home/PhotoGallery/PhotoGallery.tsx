@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import './styles.scss'
-import {ReactComponent as Left} from "./left.svg";
-import {ReactComponent as Right} from "./right.svg";
+
 
 const PhotoGallery = ({ slides }: {slides: Array<{image:string}>}) => {
 
@@ -18,8 +17,8 @@ const PhotoGallery = ({ slides }: {slides: Array<{image:string}>}) => {
 
     return (
         <div className="SliderImages">
-            <Left className="left-arrow" onClick={prevSlide}/>
-            <Right className="right-arrow" onClick={nextSlide}/>
+            <img src={"/icons/left.svg"} className="left-arrow" alt="Left Arrow" onClick={prevSlide}/>
+            <img src={"/icons/right.svg"} className="right-arrow" alt="Right Arrow" onClick={nextSlide}/>
             {slides.map((images, index) => {
                 return (
                     <div className={index === current ? "slide-active" : "slide"} key={index}>
