@@ -28,5 +28,3 @@ export default function Mars({ ...props }: JSX.IntrinsicElements['group']) {
 }
 
 useGLTF.preload('assets/MarsModel/mars.glb')
-
-
