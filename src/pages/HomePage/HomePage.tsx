@@ -20,7 +20,9 @@ const HomePage = () => {
         <div className="photo-gallery-placeholder">
             <PhotoGallery />
         </div>
-        <RoverInfo />
+        <div className="rover-info-container">
+            <RoverInfo />
+        </div>
     </div>;
 }
 
