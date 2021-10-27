@@ -44,8 +44,11 @@ const Scene = () => {
                 <Mars />
                 <Marker position={roverPosition.clone().multiplyScalar(490)} />
                 <Html
-                    position={roverPosition.clone().multiplyScalar(540)}
-                    occlude>
+                    position={roverPosition.clone().multiplyScalar(640)}
+                    occlude
+                    center
+                    distanceFactor={800}
+                >
                     <div className="marker-label">Here's where I am!</div>
                 </Html>
             </mesh>
