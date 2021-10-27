@@ -12,7 +12,26 @@
   color: white;
 }
 
+.wrong-page a {
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+}
+
 .wrong-page img {
   margin: 20px;
   height: 20vh;
+}
+
+.wrong-page-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.wrong-page-description * {
+  margin: 5px;
 }
