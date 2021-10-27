@@ -36,7 +36,7 @@ const Scene = () => {
                     center
                     distanceFactor={1200}
                     >
-                    <div className="marker-label">Here's where I am!</div>
+                    <div className="marker-label">Here I am!</div>
                 </Html>
             </mesh>
         </group>
