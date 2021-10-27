@@ -16,6 +16,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "react-three-fiber": "^6.0.13",
     "react-transition-group": "^4.4.2",
@@ -49,7 +50,6 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.2",
-    "@types/three": "^0.133.1",
-    "react-router-dom": "^5.3.0"
+    "@types/three": "^0.133.1"
   }
 }
