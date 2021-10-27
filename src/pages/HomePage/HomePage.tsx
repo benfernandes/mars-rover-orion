@@ -14,7 +14,9 @@ const HomePage = () => {
                 <MarsModel />
             </div>
         </div>
-        <IntroSection/>
+        <div className="intro-section-container">
+            <IntroSection/>
+        </div>
         <PhotoGallery />
         <RoverInfo />
     </div>;

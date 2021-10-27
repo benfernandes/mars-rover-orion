@@ -1,0 +1,16 @@
+$background-purple: #05010E;
+$background-stars: #ffe9cd;
+$background-red-brown: #3A1403;
+$text-off-white: #F0E7E7;
+$accent-purple: #8E6C88;
+$accent-orange: #99350B;
+$accent-teal: #416165;
+
+* {
+  box-sizing: border-box;
+}
+
+div.p {
+  color: $text-off-white;
+  background-color: #99350B;
+}
