@@ -1,5 +1,5 @@
 import { GetRoverManifest, Rover } from "./RoverManifest";
-import { GetRoverPhotos, RoverPhotos } from "./RoverPhotoRepo";
+import { GetRoverPhotos } from "./RoverPhotoRepo";
 
 var cachedImages: {
     curiosity: string[],

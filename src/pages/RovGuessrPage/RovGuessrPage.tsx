@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './styles.scss'
-import {getRandomImage} from '../../APIs/RovGuessrGalleryRepo'
 import {Rover} from '../../APIs/RoverManifest'
 import { handleSelection, selectRandomRover, setNewImage } from './RovGuessr';
 
@@ -17,7 +16,7 @@ const RovGuessrPage = () => {
     return <div className='rov-guessr-page'>
         <h1>RovGuessr™</h1>
         <p>Guess what rover this picture was taken from</p>
-        <img src={globalImage}/>
+        <img src={globalImage} alt='currently shown rover'/>
         <ul className='rover-selection'>
             <li>
                 <button onClick={() => {
