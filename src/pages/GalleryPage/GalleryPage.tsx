@@ -1,12 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles.scss';
 import ImageSelector from "../../components/PhotoGallery/ImageSelector/ImageSelector";
-import {imageUrls} from "../../components/PhotoGallery/ImageSelector/ImageUrls";
 import PhotoViewer from "../../components/PhotoGallery/PhotoViewer/PhotoViewer";
+import {GetRoverPhotos} from "../../APIs/RoverPhotoRepo";
+import {Rover} from "../../APIs/RoverManifest";
 
-const GalleryPage = () => {
+const GalleryPage : React.FC = () => {
 
     const [imgIndex, setImgIndex] = useState(0);
+    const [imgData, setImgData] = useState([""])
+
+    useEffect(() => {
+        GetRoverPhotos(Rover.curiosity).then(data => {
+            setImgData(data.map(image => image.img_src))
+            console.log(data)
+        })
+    }, [])
 
     const sendDataToParent = (index : any) => {
         setImgIndex(index)
@@ -15,9 +24,9 @@ const GalleryPage = () => {
     return (
         <div className="gallery-page">
             <h1>Mars Rover Photo Viewer</h1>
-            <PhotoViewer src={imageUrls[imgIndex]} />
+            <PhotoViewer src={imgData[imgIndex]} />
             <h2>Select your photo</h2>
-            <ImageSelector sendDataToParent={sendDataToParent} selectedIndex={imgIndex} imageUrls={imageUrls}/>
+            <ImageSelector sendDataToParent={sendDataToParent} selectedIndex={imgIndex} imageUrls={imgData}/>
         </div>
     )
 }

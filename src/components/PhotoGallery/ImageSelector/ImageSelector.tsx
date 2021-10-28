@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "./ImageSelector.scss"
 
 //TODO remove props : any
 
-const ImageSelector = (props : any) => (
+const ImageSelector = (props : any) => {
+
+    return (
     <div className="ImageSelector">
         {
             props.imageUrls.map((url : string, index : number) =>
@@ -17,6 +19,7 @@ const ImageSelector = (props : any) => (
             )
         }
     </div>
-)
+    )
+}
 
 export default ImageSelector
