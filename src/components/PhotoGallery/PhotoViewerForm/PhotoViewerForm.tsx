@@ -1,20 +1,17 @@
-import {useState} from "react";
+import {SetStateAction, useState} from "react";
 import './PhotoViewerForm.scss';
 import {Rover} from "../../../APIs/RoverManifest";
 import NumericInput from 'react-numeric-input';
 
-//TODO remove props : any
-const PhotoViewerForm = (props : any) => {
+const PhotoViewerForm = (props: { sendFormDataToParent: (data: SetStateAction<{ "rover": Rover; "sol": number; "camera": undefined;}>) => void; }) => {
 
     const [inputs, setInputs] = useState({
         "rover": Rover.curiosity,
-        "day": 1000,
+        "sol": 1000,
         "camera": undefined,
     });
 
-    //TODO remove event : any
-
-    const handleChange = (event : any) => {
+    const handleChange = (event: { target: { name: any; value: string | number | undefined; }; }) => {
         const name = event.target.name;
         let value = event.target.value;
         if (event.target.value === "all"){
@@ -24,7 +21,7 @@ const PhotoViewerForm = (props : any) => {
         setInputs(values => ({...values, [name]: value}))
     }
 
-    const handleSubmit = (event : any) => {
+    const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault()
         props.sendFormDataToParent(inputs)
     }
@@ -74,7 +71,7 @@ const PhotoViewerForm = (props : any) => {
                             id="numeric-input"
                             onChange={(e) => {
                                 const name = "sol"
-                                const value = e;
+                                const value = Number(e);
                                 setInputs(values => ({...values, [name]: value}))
                             }}
                         />

@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import "./ImageSelector.scss"
 
-//TODO remove props : any
-
-const ImageSelector = (props : any) => {
+const ImageSelector = (props: { imageUrls: string[]; sendDataToParent: (arg0: number) => void; selectedIndex: number; }) => {
 
     return (
     <div className="ImageSelector">

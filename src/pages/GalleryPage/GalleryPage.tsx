@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {SetStateAction, useEffect, useState} from 'react';
 import './styles.scss';
 import ImageSelector from "../../components/PhotoGallery/ImageSelector/ImageSelector";
 import PhotoViewer from "../../components/PhotoGallery/PhotoViewer/PhotoViewer";
@@ -26,13 +26,11 @@ const GalleryPage : React.FC = () => {
         console.log(imgData)
     }, [formData])
 
-    //TODO remove props : any
-
-    const sendDataToParent = (index : any) => {
+    const sendDataToParent = (index : number) => {
         setImgIndex(index)
     }
 
-    const sendFormDataToParent = (data: any) => {
+    const sendFormDataToParent = (data: SetStateAction<{"rover": Rover, "sol": number, "camera": undefined }>) => {
         setFormData(data)
     }
 
