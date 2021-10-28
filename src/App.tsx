@@ -7,7 +7,7 @@ import GalleryPage from './pages/GalleryPage';
 import HomePage from './pages/HomePage';
 import RoverDetailsPage from './pages/RoverDetailsPage';
 import RovGuessrPage from './pages/RovGuessrPage';
-import NonExistentPage from './pages/404Page';
+import NonExistentPage from './pages/404Page/404Page';
 
 function App() {
   return (

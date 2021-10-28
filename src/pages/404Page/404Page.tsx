@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../App.scss'
+import './styles.scss'
 
 const NonExistentPage: React.FC = () => {
     return <div className='wrong-page'>
