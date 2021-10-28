@@ -1,20 +1,8 @@
-const brokenImages = [
-    1, 24, 32, 36, 44, 47
-];
-
-//TODO replace with rover Api call
+import {GetRoverPhotos} from "../../../APIs/RoverPhotoRepo";
+import {GetRoverManifest, Rover} from "../../../APIs/RoverManifest";
 
 function getImageUrls() {
-    const urls = [];
-
-    for (let i = 0; i < 50; i++) {
-        if (!brokenImages.includes(i)) {
-            const imageNumberString = i.toString().padStart(2, '0');
-            urls.push(`https://picsum.photos/id/6${imageNumberString}/1600/900.jpg`)
-        }
-    }
-
-    return urls;
+    console.log(Rover)
 }
 
 export const imageUrls = getImageUrls();
