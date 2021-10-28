@@ -4,7 +4,13 @@ import "./PhotoViewer.scss"
 const PhotoViewer = (props: { src: string | undefined; }) => (
 
     <div className={"PhotoViewer"}>
-        <img src={props.src} alt={"Photo being viewed"}/>
+        {
+            props.src === undefined
+                ?
+                <h2>There are no images :( Try again! </h2>
+                :
+                <img src={props.src} alt={"Photo being viewed"}/>
+        }
     </div>
 )
 
