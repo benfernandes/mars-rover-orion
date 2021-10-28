@@ -2,6 +2,8 @@ const brokenImages = [
     1, 24, 32, 36, 44, 47
 ];
 
+//TODO replace with rover Api call
+
 function getImageUrls() {
     const urls = [];
 

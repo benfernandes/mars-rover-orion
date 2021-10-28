@@ -1,6 +1,8 @@
 import React from "react";
 import "./ImageSelector.scss"
 
+//TODO remove props : any
+
 const ImageSelector = (props : any) => (
     <div className="ImageSelector">
         {

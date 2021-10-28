@@ -1,7 +1,14 @@
 @import '../../design/_scss-variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 .gallery-page {
   text-align: left;
   margin: 0 auto;
   max-width: 60em;
+}
+
+.gallery-page h1 {
+  color: $text-off-white;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
 }
