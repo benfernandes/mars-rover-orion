@@ -3,10 +3,13 @@ import { getRandomImage } from '../../APIs/RovGuessrGalleryRepo'
 
 export class RovGuessr
 {
-    constructor(setImageCallback: Function, setRoverCallback: Function)
+    constructor(setImageCallback: Function, setRoverCallback: Function, setCurrentScoreCallback: Function)
     {
         this.setImageCallback = setImageCallback;
         this.setRoverCallback = setRoverCallback;
+        
+        this.currentScore = 0;
+        this.setCurrentScoreCallback = setCurrentScoreCallback;
     }
 
     static selectRandomRover(): Rover
@@ -18,6 +21,13 @@ export class RovGuessr
 
     handleSelection(actualRover: Rover, chosenRover: Rover)
     {
+        if (actualRover === chosenRover)
+        {
+            // Handle win
+            this.currentScore += 1;
+            this.setCurrentScoreCallback(this.currentScore);
+        }
+
         // Game onto next round
         this.setNewImage();
     }
@@ -34,4 +44,7 @@ export class RovGuessr
 
     setImageCallback: Function;
     setRoverCallback: Function;
+
+    currentScore: number;
+    setCurrentScoreCallback: Function;
 }

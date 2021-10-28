@@ -5,10 +5,12 @@ import { RovGuessr } from './RovGuessr';
 
 const RovGuessrPage = () => {
 
+    const [currentScore, setCurrentScore] = useState(0);
+
     const [globalImage, setGlobalImage] = useState("https://media-exp1.licdn.com/dms/image/C4D03AQF7C5KzdUFLcg/profile-displayphoto-shrink_800_800/0/1562106459334?e=1639612800&v=beta&t=7NqH2EZyTry0de4o9_1UqV5YVi_GOV6smcvpXiDCSb4");
     const [selectedRover, setSelectedRover] = useState(RovGuessr.selectRandomRover());
 
-    let game = new RovGuessr(setGlobalImage, setSelectedRover);
+    const [game] = useState(new RovGuessr(setGlobalImage, setSelectedRover, setCurrentScore));
 
     useEffect(() => {
         game.setNewImage()
@@ -36,6 +38,10 @@ const RovGuessrPage = () => {
                 </button>
             </li>
         </ul>
+
+        <div className='game-information'>
+            <p>You have: {currentScore} points!</p>
+        </div>
     </div>;
 }
 
