@@ -1,77 +1,65 @@
-import React, {useRef, Suspense} from 'react';
-import {Canvas, useFrame, useLoader} from 'react-three-fiber';
+import {Canvas, useFrame } from "@react-three/fiber";
 import './styles.scss'
-import { Html } from '@react-three/drei';
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
-import {Object3D} from 'three';
+import { Html } from "@react-three/drei";
+import Mars from "./Mars";
+import { ResizeObserver } from '@juggle/resize-observer';
+import React, {useRef, Suspense, useState, useEffect} from 'react';
+import {Object3D, Vector3} from 'three';
+import { getRoverPosition, Mission } from '../../../APIs/RoverPositionRepo';
+import latLongToVec3 from './LatLongToVec3';
 
-const Mars = () => {
+const Marker = (props: JSX.IntrinsicElements['mesh']) => (
+    <mesh
+        {...props}
+        scale={1}>
+        <sphereBufferGeometry args={[20, 20, 20]} />
+        <meshStandardMaterial color={0xffffff} />
+    </mesh>
+)
+
+const Scene = () => {
     const planet = useRef(new Object3D());
 
-    const { nodes } = useLoader(GLTFLoader, 'assets/MarsModel/mars.glb');
-    // model is from https://solarsystem.nasa.gov/resources/2372/mars-3d-model/
-    // use GTLFLoader from three.js and useLoader hook from react-three-fiber to load model
-
-
-    useFrame(() => (planet.current.rotation.y += 0.002));
+    useFrame(() => (planet.current.rotation.y += 0.005));
     // Adds rotation to planet
 
-    // @ts-ignore
-    const Marker = (props) => {
-        // const ref = useRef()
-        //
-        // useFrame(() => (ref.current.rotation.y += 0.001));
+    const sizeOfSphere = 15;
+    const [roverPosition, setRoverPosition] = useState(new Vector3(0, 0, 0));
 
-        return (
-            <group>
-                <mesh
-                    {...props}
-                    // ref={ref}
-                    scale={1}>
-                    <sphereBufferGeometry args={[20, 20, 20]} />
-                    <meshStandardMaterial color={0xffffff} />
-                </mesh>
-            </group>
-        )
-    }
-
-    // @ts-ignore
+    useEffect(() => {
+        getRoverPosition(Mission.Perseverance).then(latLong => {
+            const cartesianPosition = latLongToVec3(latLong.lat, latLong.lon);
+            setRoverPosition(cartesianPosition);
+        });
+    }, [])
+    
     return (
         <group ref={planet}>
             <mesh
-                visible={true}
-                position={[0, 0, 0]}
-                // Adding data from mars.glb to the geometry and material of the sphere
-                geometry={
-                    // @ts-ignore
-                    nodes.Cube008.geometry}
-                material={
-                    // @ts-ignore
-                    nodes.Cube008.material}>
-                {/*<sphereBufferGeometry args={[260, 260, 260]} />*/}
-                {/*<meshStandardMaterial color={0xffffff} />*/}
+                // Sets initial rotation
+                rotation={[0, 3.3, 0]}>
+                <Mars />
+                <Marker position={roverPosition.clone().multiplyScalar(490)} />
+                <Html
+                    position={roverPosition.clone().multiplyScalar(540)}
+                    occlude>
+                    <div className="marker-label">Here's where I am!</div>
+                </Html>
             </mesh>
-            <Marker position={[280, 280, 280]} />
-            <Html
-                position={[340, 340, 340]}
-                occlude>
-                <div className="marker-label">Here's where I am!</div>
-            </Html>
         </group>
-
     );
 };
 
 
 const MarsModel = () => {
-    // @ts-ignore
     return (
         <Canvas className="canvas"
-                camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}>
-            <directionalLight intensity={0.5} position={[2000, 2000, 2000]}/>
-            <ambientLight intensity={0.07} />
+                camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}
+                resize={{ polyfill: ResizeObserver}}>
+            <directionalLight intensity={0.3} position={[-2000, 1000, 2000]}/>
+            <ambientLight intensity={0.02} />
             <Suspense fallback="loading">
-                <Mars />
+                <Scene />
             </Suspense>
         </Canvas>
     )
