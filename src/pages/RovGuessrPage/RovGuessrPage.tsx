@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import './styles.scss'
 import {Rover} from '../../APIs/RoverManifest'
 import { RovGuessr } from './RovGuessr';
 
-const RovGuessrPage = () => {
+const RovGuessrPage: React.FC = () => {
 
     const [currentScore, setCurrentScore] = useState(0);
 

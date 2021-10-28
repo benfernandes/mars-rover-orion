@@ -25,3 +25,21 @@
 
     margin: 4rem;
 }
+
+.floating-text {
+    position: absolute;
+
+    color: #a0d0d6;
+    font-size: 5rem;
+
+    animation: float-upwards 1s infinite; 
+}
+
+@keyframes float-upwards {
+    0% {
+        top: -10vh;
+    }
+    100% {
+        top: 35vh;
+    }
+}
