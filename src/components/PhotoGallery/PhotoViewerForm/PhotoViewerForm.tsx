@@ -6,18 +6,22 @@ import NumericInput from 'react-numeric-input';
 //TODO remove props : any
 const PhotoViewerForm = (props : any) => {
 
-    const [inputs, setInputs] = useState({})
-    const [selectedOption, setSelectedOption] = useState(null)
+    const [selectedRover, setSelectedRover] = useState(Rover.perseverance)
     const [selectedDay, setSelectedDay] = useState(0)
     const [selectedCamera, setSelectedCamera] = useState("")
 
     //TODO remove event : any
-    const handleSubmit = (event : any) => {
-
-    }
 
     const onValueChange = (event : any) => {
-        setSelectedOption(event.target.value)
+        if (event.target.value === "Perseverance") {
+            setSelectedRover(Rover.perseverance)
+        }
+        else if (event.target.value === "Curiosity") {
+            setSelectedRover(Rover.curiosity)
+        }
+        else if (event.target.value === "Spirit") {
+            setSelectedRover(Rover.spirit)
+        }
     }
 
     const handleDayChange = (event : any) => {
@@ -30,7 +34,12 @@ const PhotoViewerForm = (props : any) => {
         console.log(selectedCamera)
     }
 
-    // GetRoverPhotos(sol = 1, camera?: string)
+    const handleSubmit = (event : any) => {
+        let form = [selectedRover, selectedDay, selectedCamera]
+        alert(form[0])
+        props.sendFormDataToParent(form)
+    }
+
     return (
         <div className="photo-viewer-form">
             <form onSubmit={handleSubmit}>
@@ -41,7 +50,7 @@ const PhotoViewerForm = (props : any) => {
                             <input
                                 type="radio"
                                 value="Perseverance"
-                                checked={selectedOption === "Perseverance"}
+                                checked={selectedRover === Rover.perseverance}
                                 onChange={onValueChange}
                             />
                             Perseverance
@@ -50,7 +59,7 @@ const PhotoViewerForm = (props : any) => {
                             <input
                                 type="radio"
                                 value="Curiosity"
-                                checked={selectedOption === "Curiosity"}
+                                checked={selectedRover === Rover.curiosity}
                                 onChange={onValueChange}
                             />
                             Curiosity
@@ -59,7 +68,7 @@ const PhotoViewerForm = (props : any) => {
                             <input
                                 type="radio"
                                 value="Spirit"
-                                checked={selectedOption === "Spirit"}
+                                checked={selectedRover === Rover.spirit}
                                 onChange={onValueChange}
                             />
                             Spirit
@@ -84,6 +93,7 @@ const PhotoViewerForm = (props : any) => {
                         <option value="PANCAM">Panoramic Camera</option>
                         <option value="MINITES">Miniature Thermal Emission Spectrometer (Mini-TES)</option>
                     </select>
+                    <input type="submit" value={"Submit"}/>
                 </fieldset>
             </form>
 
