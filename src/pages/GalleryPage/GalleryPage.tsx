@@ -26,7 +26,7 @@ const GalleryPage : React.FC = () => {
         console.log(imgData)
     }, [formData])
 
-    const sendDataToParent = (index : number) => {
+    const sendSelectedIndexToParent = (index : number) => {
         setImgIndex(index)
     }
 
@@ -40,7 +40,7 @@ const GalleryPage : React.FC = () => {
             <PhotoViewerForm sendFormDataToParent={sendFormDataToParent} />
             <PhotoViewer src={imgData[imgIndex]} />
             <h2>Select your photo</h2>
-            <ImageSelector sendDataToParent={sendDataToParent} selectedIndex={imgIndex} imageUrls={imgData}/>
+            <ImageSelector sendSelectedIndexToParent={sendSelectedIndexToParent} selectedIndex={imgIndex} imageUrls={imgData}/>
         </div>
     )
 }
