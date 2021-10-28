@@ -1,12 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import "./ImageSelector.scss"
 
-const ImageSelector = (props: { imageUrls: string[]; sendDataToParent: (arg0: number) => void; selectedIndex: number; }) => {
+interface ImageSelectorProps {
+    imageUrls: string[];
+    selectedIndex: number;
+    sendDataToParent: (arg0: number) => void;
+}
+
+const ImageSelector : React.FC<ImageSelectorProps> = (props) => {
 
     return (
     <div className="ImageSelector">
         {
-            props.imageUrls.map((url : string, index : number) =>
+            props.imageUrls.map((url, index) =>
                 <img key={url}
                      onClick={() => {props.sendDataToParent(index);  }}
                      className={index === props.selectedIndex ? "selected ImageSelectorPhoto" : "ImageSelectorPhoto"}
