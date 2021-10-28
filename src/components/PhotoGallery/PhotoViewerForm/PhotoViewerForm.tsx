@@ -1,45 +1,36 @@
 import {useState} from "react";
 import './PhotoViewerForm.scss';
 import {Rover} from "../../../APIs/RoverManifest";
+import {RoverPhotos} from "../../../APIs/RoverPhotoRepo";
 import NumericInput from 'react-numeric-input';
 
 //TODO remove props : any
 const PhotoViewerForm = (props : any) => {
 
-    const [selectedRover, setSelectedRover] = useState(Rover.perseverance)
-    const [selectedDay, setSelectedDay] = useState(0)
-    const [selectedCamera, setSelectedCamera] = useState("")
+    const [inputs, setInputs] = useState({
+        "rover": Rover.curiosity,
+        "day": 1000,
+        "camera": undefined,
+    });
 
     //TODO remove event : any
 
-    const onValueChange = (event : any) => {
-        if (event.target.value === "Perseverance") {
-            setSelectedRover(Rover.perseverance)
+    const handleChange = (event : any) => {
+        const name = event.target.name;
+        let value = event.target.value;
+        if (event.target.value === "all"){
+            value = undefined;
         }
-        else if (event.target.value === "Curiosity") {
-            setSelectedRover(Rover.curiosity)
-        }
-        else if (event.target.value === "Spirit") {
-            setSelectedRover(Rover.spirit)
-        }
-    }
 
-    const handleDayChange = (event : any) => {
-        setSelectedDay(event)
-        console.log(selectedDay)
-    }
-
-    const handleCameraChange = (event : any) => {
-        setSelectedCamera(event.target.value)
-        console.log(selectedCamera)
+        setInputs(values => ({...values, [name]: value}))
     }
 
     const handleSubmit = (event : any) => {
-        let form = [selectedRover, selectedDay, selectedCamera]
-        alert(form[0])
-        props.sendFormDataToParent(form)
+        event.preventDefault()
+        props.sendFormDataToParent(inputs)
     }
 
+    // @ts-ignore
     return (
         <div className="photo-viewer-form">
             <form onSubmit={handleSubmit}>
@@ -49,27 +40,33 @@ const PhotoViewerForm = (props : any) => {
                         <label>
                             <input
                                 type="radio"
-                                value="Perseverance"
-                                checked={selectedRover === Rover.perseverance}
-                                onChange={onValueChange}
+                                value={Rover.perseverance}
+                                name="rover"
+                                // @ts-ignore
+                                checked={inputs["rover"] === Rover.perseverance}
+                                onChange={handleChange}
                             />
                             Perseverance
                         </label>
                         <label>
                             <input
                                 type="radio"
-                                value="Curiosity"
-                                checked={selectedRover === Rover.curiosity}
-                                onChange={onValueChange}
+                                value={Rover.curiosity}
+                                name="rover"
+                                // @ts-ignore
+                                checked={inputs["rover"] === Rover.curiosity}
+                                onChange={handleChange}
                             />
                             Curiosity
                         </label>
                         <label>
                             <input
                                 type="radio"
-                                value="Spirit"
-                                checked={selectedRover === Rover.spirit}
-                                onChange={onValueChange}
+                                value={Rover.spirit}
+                                name="rover"
+                                // @ts-ignore
+                                checked={inputs["rover"] === Rover.spirit}
+                                onChange={handleChange}
                             />
                             Spirit
                         </label>
@@ -78,25 +75,30 @@ const PhotoViewerForm = (props : any) => {
                     {/*TODO set max to be max from selected rover*/}
                     <NumericInput
                         min={0}
-                        // max={100}
-                        onChange={handleDayChange}
+                        onChange={(e) => {
+                            const name = "sol"
+                            const value = e;
+                            setInputs(values => ({...values, [name]: value}))
+                        }}
                     />
                     <label htmlFor="cameraSelector">Select a camera: </label>
-                    <select id="dropdown" value={selectedCamera} onChange={handleCameraChange}>
-                        <option value="FHAZ">Front Hazard Avoidance Camera</option>
-                        <option value="RHAZ">Rear Hazard Avoidance Camera</option>
-                        <option value="MAST">Mast Camera</option>
-                        <option value="CHEMCAM">Chemistry and Camera Complex</option>
-                        <option value="MAHLI">Mars Hand Lens Imager</option>
-                        <option value="MARDI">Mars Descent Imager</option>
-                        <option value="NAVCAM">Navigation Camera</option>
-                        <option value="PANCAM">Panoramic Camera</option>
-                        <option value="MINITES">Miniature Thermal Emission Spectrometer (Mini-TES)</option>
+                    <select name="camera" id="dropdown"
+                        // @ts-ignore
+                            value={inputs["camera"]} onChange={handleChange}>
+                        <option value="all">All cameras</option>
+                        <option value="fhaz">Front Hazard Avoidance Camera</option>
+                        <option value="rhaz">Rear Hazard Avoidance Camera</option>
+                        <option value="mast">Mast Camera</option>
+                        <option value="chemcam">Chemistry and Camera Complex</option>
+                        <option value="mahli">Mars Hand Lens Imager</option>
+                        <option value="mardi">Mars Descent Imager</option>
+                        <option value="navcam">Navigation Camera</option>
+                        <option value="pancam">Panoramic Camera</option>
+                        <option value="minites">Miniature Thermal Emission Spectrometer (Mini-TES)</option>
                     </select>
                     <input type="submit" value={"Submit"}/>
                 </fieldset>
             </form>
-
         </div>
     )
 }

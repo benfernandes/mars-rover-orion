@@ -10,14 +10,21 @@ const GalleryPage : React.FC = () => {
 
     const [imgIndex, setImgIndex] = useState(0);
     const [imgData, setImgData] = useState([""]);
-    const [formData, setFormData] = useState(null);
+    const [formData, setFormData] = useState({
+        "rover": Rover.curiosity,
+        "sol": 1000,
+        "camera": undefined
+    });
 
     useEffect(() => {
-        GetRoverPhotos(Rover.curiosity).then(data => {
-            setImgData(data.map(image => image.img_src))
-            console.log(data)
-        })
-    }, [])
+        console.log(formData)
+        GetRoverPhotos(formData["rover"], formData["sol"], formData["camera"])
+            .then(data => {
+                if (data !== undefined) {
+                    setImgData(data.map(image => image.img_src))}
+            })
+        console.log(imgData)
+    }, [formData])
 
     //TODO remove props : any
 
@@ -25,8 +32,8 @@ const GalleryPage : React.FC = () => {
         setImgIndex(index)
     }
 
-    const sendFormDataToParent = (formData : any) => {
-        setFormData(formData)
+    const sendFormDataToParent = (data: any) => {
+        setFormData(data)
     }
 
     return (
