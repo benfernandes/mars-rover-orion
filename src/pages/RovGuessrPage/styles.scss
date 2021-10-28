@@ -1,0 +1,22 @@
+.rov-guessr-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.rover-selection {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+}
+
+.rover-selection button {
+    width: 10rem;
+    height: 4rem;
+
+    margin: 4rem;
+}
