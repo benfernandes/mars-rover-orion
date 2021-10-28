@@ -1,24 +1,37 @@
 import { Rover } from "../../APIs/RoverManifest";
 import { getRandomImage } from '../../APIs/RovGuessrGalleryRepo'
 
-export function selectRandomRover(): Rover
+export class RovGuessr
 {
-    const values = Object.values(Rover);
-    const enumKey = values[Math.floor(Math.random() * values.length)];
-    return enumKey;
-}
+    constructor(setImageCallback: Function, setRoverCallback: Function)
+    {
+        this.setImageCallback = setImageCallback;
+        this.setRoverCallback = setRoverCallback;
+    }
 
-export function handleSelection(actualRover: Rover, chosenRover: Rover)
-{
-    
-}
+    static selectRandomRover(): Rover
+    {
+        const values = Object.values(Rover);
+        const enumKey = values[Math.floor(Math.random() * values.length)];
+        return enumKey;
+    }
 
-export function setNewImage(setImageCallback: Function, setRoverCallback: Function)
-{
-    const newSelectedRover = selectRandomRover();
-    setRoverCallback(newSelectedRover);
+    handleSelection(actualRover: Rover, chosenRover: Rover)
+    {
+        // Game onto next round
+        this.setNewImage();
+    }
 
-    getRandomImage(newSelectedRover).then(img => {
-        setImageCallback(img)
-    });
+    setNewImage()
+    {
+        const newSelectedRover = RovGuessr.selectRandomRover();
+        this.setRoverCallback(newSelectedRover);
+
+        getRandomImage(newSelectedRover).then(img => {
+            this.setImageCallback(img)
+        });
+    }
+
+    setImageCallback: Function;
+    setRoverCallback: Function;
 }

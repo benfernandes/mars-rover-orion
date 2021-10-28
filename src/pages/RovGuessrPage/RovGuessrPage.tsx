@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import './styles.scss'
 import {Rover} from '../../APIs/RoverManifest'
-import { handleSelection, selectRandomRover, setNewImage } from './RovGuessr';
+import { RovGuessr } from './RovGuessr';
 
 const RovGuessrPage = () => {
 
     const [globalImage, setGlobalImage] = useState("https://media-exp1.licdn.com/dms/image/C4D03AQF7C5KzdUFLcg/profile-displayphoto-shrink_800_800/0/1562106459334?e=1639612800&v=beta&t=7NqH2EZyTry0de4o9_1UqV5YVi_GOV6smcvpXiDCSb4");
-    const [selectedRover, setSelectedRover] = useState(selectRandomRover());
+    const [selectedRover, setSelectedRover] = useState(RovGuessr.selectRandomRover());
+
+    let game = new RovGuessr(setGlobalImage, setSelectedRover);
 
     useEffect(() => {
-        setNewImage(setGlobalImage, setSelectedRover)
+        game.setNewImage()
     }, [])
      
 
@@ -19,26 +21,17 @@ const RovGuessrPage = () => {
         <img src={globalImage} alt='currently shown rover'/>
         <ul className='rover-selection'>
             <li>
-                <button onClick={() => {
-                    handleSelection(selectedRover, Rover.curiosity);
-                    setNewImage(setGlobalImage, setSelectedRover);
-                }}>
+                <button onClick={() => game.handleSelection(selectedRover, Rover.curiosity)}>
                     Curiosity
                 </button>
             </li>
             <li>
-                <button onClick={() => {
-                    handleSelection(selectedRover, Rover.opportunity);
-                    setNewImage(setGlobalImage, setSelectedRover);
-                }}>
+            <button onClick={() => game.handleSelection(selectedRover, Rover.opportunity)}>
                     Opportunity
                 </button>
             </li>
             <li>
-                <button onClick={() => {
-                    handleSelection(selectedRover, Rover.spirit);
-                    setNewImage(setGlobalImage, setSelectedRover);
-                }}>
+            <button onClick={() => game.handleSelection(selectedRover, Rover.spirit)}>
                     Spirit
                 </button>
             </li>
