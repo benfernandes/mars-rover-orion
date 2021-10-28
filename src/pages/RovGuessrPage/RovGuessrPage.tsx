@@ -20,18 +20,27 @@ const RovGuessrPage = () => {
         <img src={globalImage}/>
         <ul className='rover-selection'>
             <li>
-                <button onClick={() => handleSelection(selectedRover, Rover.curiosity)}>
+                <button onClick={() => {
+                    handleSelection(selectedRover, Rover.curiosity);
+                    setNewImage(setGlobalImage, setSelectedRover);
+                }}>
                     Curiosity
                 </button>
             </li>
             <li>
-                <button onClick={() => handleSelection(selectedRover, Rover.opportunity)}>
+                <button onClick={() => {
+                    handleSelection(selectedRover, Rover.opportunity);
+                    setNewImage(setGlobalImage, setSelectedRover);
+                }}>
                     Opportunity
                 </button>
             </li>
             <li>
-                <button onClick={() => handleSelection(selectedRover, Rover.spirit)}>
-                    Curiosity
+                <button onClick={() => {
+                    handleSelection(selectedRover, Rover.spirit);
+                    setNewImage(setGlobalImage, setSelectedRover);
+                }}>
+                    Spirit
                 </button>
             </li>
         </ul>

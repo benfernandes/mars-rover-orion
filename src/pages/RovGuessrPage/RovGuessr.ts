@@ -10,7 +10,7 @@ export function selectRandomRover(): Rover
 
 export function handleSelection(actualRover: Rover, chosenRover: Rover)
 {
-    alert(actualRover === chosenRover);
+    
 }
 
 export function setNewImage(setImageCallback: Function, setRoverCallback: Function)
@@ -19,8 +19,6 @@ export function setNewImage(setImageCallback: Function, setRoverCallback: Functi
     setRoverCallback(newSelectedRover);
 
     getRandomImage(newSelectedRover).then(img => {
-        console.log(newSelectedRover)
         setImageCallback(img)
-    }
-    );
+    });
 }
