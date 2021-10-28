@@ -1,7 +1,6 @@
 import {useState} from "react";
 import './PhotoViewerForm.scss';
 import {Rover} from "../../../APIs/RoverManifest";
-import {RoverPhotos} from "../../../APIs/RoverPhotoRepo";
 import NumericInput from 'react-numeric-input';
 
 //TODO remove props : any
@@ -30,7 +29,6 @@ const PhotoViewerForm = (props : any) => {
         props.sendFormDataToParent(inputs)
     }
 
-    // @ts-ignore
     return (
         <div className="photo-viewer-form">
             <form onSubmit={handleSubmit}>
@@ -42,7 +40,6 @@ const PhotoViewerForm = (props : any) => {
                                 type="radio"
                                 value={Rover.perseverance}
                                 name="rover"
-                                // @ts-ignore
                                 checked={inputs["rover"] === Rover.perseverance}
                                 onChange={handleChange}
                             />
@@ -53,7 +50,6 @@ const PhotoViewerForm = (props : any) => {
                                 type="radio"
                                 value={Rover.curiosity}
                                 name="rover"
-                                // @ts-ignore
                                 checked={inputs["rover"] === Rover.curiosity}
                                 onChange={handleChange}
                             />
@@ -64,7 +60,6 @@ const PhotoViewerForm = (props : any) => {
                                 type="radio"
                                 value={Rover.spirit}
                                 name="rover"
-                                // @ts-ignore
                                 checked={inputs["rover"] === Rover.spirit}
                                 onChange={handleChange}
                             />
@@ -83,7 +78,6 @@ const PhotoViewerForm = (props : any) => {
                     />
                     <label htmlFor="cameraSelector">Select a camera: </label>
                     <select name="camera" id="dropdown"
-                        // @ts-ignore
                             value={inputs["camera"]} onChange={handleChange}>
                         <option value="all">All cameras</option>
                         <option value="fhaz">Front Hazard Avoidance Camera</option>
