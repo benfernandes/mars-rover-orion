@@ -11,19 +11,17 @@ export interface RoverManifest {
         status: string,
         max_sol: number,
         total_photos: number,
-        photos: {
+        photos: Array<{
             sol: number,
             total_photos: number,
             cameras: string[],
-        }[],
+        }>,
     }
 }
 
-export class RoverManifestRepo {
-    static async GetRoverManifest(rover: Rover) {
-        const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}`); // wither api key?
-        const json = await response.json();
+export async function GetRoverManifest(rover: Rover) {
+    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}`); // wither api key?
+    const json = await response.json();
 
-        return (json as RoverManifest).photo_manifest;
-    }
+    return (json as RoverManifest).photo_manifest;
 }
