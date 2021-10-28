@@ -1,22 +1,25 @@
 @import "../../../design/_scss-variables.scss";
 
 .placeholder {
-  max-width: 800px;
   background-color: rgba($accent-purple, 0.22);
-  border-radius: 10px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;;
+  align-items: center;
+  padding: 50px 50px 100px;
+  gap: 50px;
 }
 .placeholder h2 {
   color: $text-off-white;
+  min-width: 300px;
+  text-align: center;
 }
 
 .placeholder-img {
+  max-width: 800px;
+  min-width: 300px;
   width: 80%;
   height: auto;
   border-radius: 10px;
-  margin: 10% 0;
 }

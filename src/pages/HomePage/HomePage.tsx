@@ -17,7 +17,7 @@ const HomePage = () => {
         <div className="intro-section-container">
             <IntroSection/>
         </div>
-        <div className="photo-gallery-placeholder">
+        <div className="photo-gallery-placeholder-container">
             <PhotoGallery />
         </div>
         <div className="rover-info-container">
