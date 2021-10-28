@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.ImageSelector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ImageSelectorPhoto {
+  width: 23%;
+  min-width: 160px;
+  height: auto;
+  margin: 0.5em;
+}
+.selected {
+  outline: 3px solid yellow;
+}
