@@ -9,7 +9,7 @@ export const Subnav: React.FC<SubnavProps> = (props: SubnavProps) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <li className="nav-item">
+        <li className="subnav">
             <button className="icon-button" onClick={() => setOpen(!open)}>
                 {props.icon}
             </button>

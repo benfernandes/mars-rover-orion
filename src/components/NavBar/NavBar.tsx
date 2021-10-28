@@ -1,6 +1,7 @@
 import React from "react";
 import {DropdownMenu} from "./DropdownMenu";
 import {Subnav} from "./Subnav";
+import './NavBar.scss';
 
 const NavBar: React.FC = () => {
     return (

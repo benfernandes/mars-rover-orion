@@ -14,7 +14,7 @@ export const DropdownMenu: React.FC = () => {
                 classNames="menu-primary"
                 timeout={500}
             >
-                <div className="menu">
+                <div className="dropdown-menu">
                     <Link to="/">
                         <DropdownItem setActiveMenu={setActiveMenu}
                                       leftIcon={<img src={"/icons/homeicon.svg"} alt="Home"/>}>
