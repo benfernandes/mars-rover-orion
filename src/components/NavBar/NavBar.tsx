@@ -1,16 +1,11 @@
 import React, {ReactChildren, ReactElement, ReactNode, useState} from "react";
 import {CSSTransition} from "react-transition-group";
-import { ReactComponent as MenuIcon } from "./icons/menuicon.svg"
-import { ReactComponent as GalleryIcon } from "./icons/galleryicon.svg"
-import { ReactComponent as RoverIcon } from "./icons/rovericon.svg"
-import { ReactComponent as GuessIcon } from "./icons/thinkingicon.svg"
-import { ReactComponent as HomeIcon } from "./icons/homeicon.svg"
 import { Link } from "react-router-dom";
 
 const NavBarFunction : React.FC = () => {
     return (
         <Navbar>
-            <NavItem icon={<MenuIcon/>}>
+            <NavItem icon={<img src={"/icons/menuicon.svg"} alt="Home"/>}>
                 <DropdownMenu>
 
                 </DropdownMenu>
@@ -20,29 +15,9 @@ const NavBarFunction : React.FC = () => {
 }
 
 
+
 const DropdownMenu : React.FC = () => {
-
     const [activeMenu, setActiveMenu] = useState("main");
-
-
-    interface DropDownItemProps{
-        children? : React.ReactNode;
-        goToMenu? : string ;
-        leftIcon? : ReactElement;
-        rightIcon? : ReactElement;
-    }
-
-
-    const DropdownItem: React.FC <DropDownItemProps> = (props: DropDownItemProps) => {
-        return(
-            <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-                <span className="icon-button">{props.leftIcon}</span>
-
-                {props.children}
-                <span className="icon-right">{props.rightIcon}</span>
-            </a>
-        )
-    }
 
     return(
         <div className="dropdown" >
@@ -54,13 +29,14 @@ const DropdownMenu : React.FC = () => {
             >
                 <div className="menu">
                     <DropdownItem
-                        leftIcon={<HomeIcon/>}
+                        setActiveMenu={setActiveMenu}
+                        leftIcon={<img src={"/icons/homeicon.svg"} alt="Home"/>}
                         goToMenu="settings"
                     >
                         Home </DropdownItem>
-                    <Link to={"/gallery"}><DropdownItem leftIcon={<GalleryIcon/>}>Gallery</DropdownItem></Link>
-                    <Link to={"/roverDetails"}><DropdownItem leftIcon={<RoverIcon/>}>Rover Details</DropdownItem></Link>
-                    <Link to={"/RovGuessr"}><DropdownItem leftIcon={<GuessIcon/>}>RovGuessr</DropdownItem></Link>
+                    <Link to="/gallery"><DropdownItem setActiveMenu={setActiveMenu} leftIcon={<img src={"/icons/galleryicon.svg"} alt="Gallery"/>}>Gallery</DropdownItem></Link>
+                    <Link to="/roverDetails"><DropdownItem setActiveMenu={setActiveMenu} leftIcon={<img src={"/icons/rovericon.svg"} alt="Rover Details"/>}>Rover Details</DropdownItem></Link>
+                    <Link to="/RovGuessr"><DropdownItem setActiveMenu={setActiveMenu} leftIcon={<img src={"/icons/thinkingicon.svg"} alt="Rover Game"/>}>RovGuessr</DropdownItem></Link>
 
                 </div>
             </CSSTransition>
@@ -72,8 +48,7 @@ const DropdownMenu : React.FC = () => {
                 classNames="menu=secondary"
             >
                 <div className="menu">
-                    <DropdownItem>Settings</DropdownItem>
-
+                    <DropdownItem setActiveMenu={setActiveMenu} >Settings</DropdownItem>
                 </div>
             </CSSTransition>
         </div>
@@ -81,11 +56,31 @@ const DropdownMenu : React.FC = () => {
     )
 }
 
+interface DropDownItemProps{
+    children? : React.ReactNode;
+    goToMenu? : string ;
+    leftIcon? : ReactElement;
+    rightIcon? : ReactElement;
+    setActiveMenu: Function;
+}
+
+
+const DropdownItem: React.FC <DropDownItemProps> = (props: DropDownItemProps) => {
+    return(
+        <a href="/#" className="menu-item" onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}>
+            <span className="icon-button">{props.leftIcon}</span>
+            {props.children}
+            <span className="icon-right">{props.rightIcon}</span>
+        </a>
+    )
+}
+
+
 
 const Navbar: React.FC  =(props) => {
     return(
         <nav className="navbar">
-            <ul className="navbar-nav"> {props.children} </ul>
+            <ul className="navbar-nav">{props.children}</ul>
         </nav>
     )
 }
@@ -101,9 +96,9 @@ const NavItem : React.FC<NavItemProps> = (props : NavItemProps) => {
 
     return(
         <li className="nav-item">
-            <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+            <button className="icon-button" onClick={() => setOpen(!open)}>
                 {props.icon}
-            </a>
+            </button>
             {open && props.children}
         </li>
     )
