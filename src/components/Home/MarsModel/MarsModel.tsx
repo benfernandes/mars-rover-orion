@@ -5,9 +5,17 @@ import Mars from "./Mars";
 import { ResizeObserver } from '@juggle/resize-observer';
 import React, {useRef, Suspense, useState, useEffect} from 'react';
 import {Object3D, Vector3} from 'three';
-import { RoverPositionRepo, Mission } from '../../../APIs/RoverPositionRepo';
-import LatLongToVec3 from './LatLongToVec3';
+import { getRoverPosition, Mission } from '../../../APIs/RoverPositionRepo';
+import latLongToVec3 from './LatLongToVec3';
 
+const Marker = (props: JSX.IntrinsicElements['mesh']) => (
+    <mesh
+        {...props}
+        scale={1}>
+        <sphereBufferGeometry args={[20, 20, 20]} />
+        <meshStandardMaterial color={0xffffff} />
+    </mesh>
+)
 
 const Scene = () => {
     const planet = useRef(new Object3D());
@@ -15,27 +23,16 @@ const Scene = () => {
     useFrame(() => (planet.current.rotation.y += 0.005));
     // Adds rotation to planet
 
-
-    const Marker = (props : any) => (
-        <mesh
-            {...props}
-            scale={1}>
-            <sphereBufferGeometry args={[20, 20, 20]} />
-            <meshStandardMaterial color={0xffffff} />
-        </mesh>
-    )
-
     const sizeOfSphere = 15;
     const [roverPosition, setRoverPosition] = useState(new Vector3(0, 0, 0));
 
     useEffect(() => {
-        RoverPositionRepo.GetRoverPosition(Mission.Perseverance).then(latLong => {
-            const cartesianPosition = LatLongToVec3(latLong.lat, latLong.lon);
+        getRoverPosition(Mission.Perseverance).then(latLong => {
+            const cartesianPosition = latLongToVec3(latLong.lat, latLong.lon);
             setRoverPosition(cartesianPosition);
         });
     }, [])
     
-
     return (
         <group ref={planet}>
             <mesh
