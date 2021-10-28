@@ -1,5 +1,5 @@
 import { GetRoverManifest, Rover } from "./RoverManifest";
-import { GetRoverPhotos } from "./RoverPhotoRepo";
+import { GetRoverPhotos, RoverPhotos } from "./RoverPhotoRepo";
 
 var cachedImages: {
     curiosity: string[],
@@ -26,10 +26,28 @@ export async function getRandomImage(rover: Rover, refreshImages: boolean = fals
 
 async function refreshCachedImages(rover: Rover)
 {
+    const goodCameras = [
+        "FHAZ",
+        "RHAZ",
+        "NAVCAM"
+    ];
+
     const manifest = await GetRoverManifest(rover);
 
-    const randomSol = Math.floor(Math.random() * manifest.max_sol);
+    let roverPhotos: Array<{
+        sol: number,
+        img_src: string,
+        camera: {
+            name: string,
+        },
+    }> | null = null;
 
-    const roverPhotos = await GetRoverPhotos(rover, randomSol, "FHAZ")
+    while (roverPhotos === null || roverPhotos.length === 0)
+    {
+        let randomCamera = goodCameras[Math.floor(Math.random() * goodCameras.length)];
+        let randomSol = Math.floor(Math.random() * manifest.max_sol);
+        roverPhotos = await GetRoverPhotos(rover, randomSol, randomCamera);
+    }
+
     cachedImages[rover] = roverPhotos.map(photo => photo.img_src)
 }
