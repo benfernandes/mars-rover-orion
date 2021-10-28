@@ -43,6 +43,27 @@
   align-items: center;
 }
 
+//Title Section Media Breakpoint
+@media screen and (min-width: 800px) {
+  .title-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.title-container {
+    display: block;
+    position: relative;
+  }
+
+  .title-container h1{
+    margin: 0 0 0 300px;
+  }
+
+
+}
+
 //Intro Section
 
 .intro-section-container {

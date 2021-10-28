@@ -6,12 +6,14 @@ import "./HomePageStyle.scss"
 
 const HomePage = () => {
     return <div className="page-container">
-        <div className="title-container">
-            <h1>Mars Orion Website</h1>
-        </div>
-        <div className="mars-model-container">
-            <div className={"mars-model-wrapper"}>
-                <MarsModel />
+        <div className={"title-section"}>
+            <div className="title-container">
+                <h1>Mars Orion Website</h1>
+            </div>
+            <div className="mars-model-container">
+                <div className={"mars-model-wrapper"}>
+                    <MarsModel />
+                </div>
             </div>
         </div>
         <div className="intro-section-container">
