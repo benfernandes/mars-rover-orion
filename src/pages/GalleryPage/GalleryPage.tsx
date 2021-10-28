@@ -1,4 +1,4 @@
-import React, {SetStateAction, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles.scss';
 import ImageSelector from "../../components/PhotoGallery/ImageSelector/ImageSelector";
 import PhotoViewer from "../../components/PhotoGallery/PhotoViewer/PhotoViewer";
@@ -6,11 +6,17 @@ import {GetRoverPhotos} from "../../APIs/RoverPhotoRepo";
 import {Rover} from "../../APIs/RoverManifest";
 import PhotoViewerForm from "../../components/PhotoGallery/PhotoViewerForm/PhotoViewerForm";
 
+export interface FormData {
+    "rover": Rover;
+    "sol": number;
+    "camera": undefined;
+}
+
 const GalleryPage : React.FC = () => {
 
     const [imgIndex, setImgIndex] = useState(0);
     const [imgData, setImgData] = useState([""]);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         "rover": Rover.curiosity,
         "sol": 1000,
         "camera": undefined
@@ -18,7 +24,7 @@ const GalleryPage : React.FC = () => {
 
     useEffect(() => {
         console.log(formData)
-        GetRoverPhotos(formData["rover"], formData["sol"], formData["camera"])
+        GetRoverPhotos(formData.rover, formData.sol, formData.camera)
             .then(data => {
                 if (data !== undefined) {
                     setImgData(data.map(image => image.img_src))}
@@ -30,7 +36,7 @@ const GalleryPage : React.FC = () => {
         setImgIndex(index)
     }
 
-    const sendFormDataToParent = (data: SetStateAction<{"rover": Rover, "sol": number, "camera": undefined }>) => {
+    const sendFormDataToParent = (data : FormData) => {
         setFormData(data)
     }
 
