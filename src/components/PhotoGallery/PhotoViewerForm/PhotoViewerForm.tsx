@@ -38,9 +38,9 @@ const PhotoViewerForm = (props : any) => {
                         <label>
                             <input
                                 type="radio"
-                                value={Rover.perseverance}
+                                value={Rover.opportunity}
                                 name="rover"
-                                checked={inputs["rover"] === Rover.perseverance}
+                                checked={inputs["rover"] === Rover.opportunity}
                                 onChange={handleChange}
                             />
                             Perseverance
@@ -66,16 +66,19 @@ const PhotoViewerForm = (props : any) => {
                             Spirit
                         </label>
                     </div>
-                    <label htmlFor="selectSol">Select a day: </label>
-                    {/*TODO set max to be max from selected rover*/}
-                    <NumericInput
-                        min={0}
-                        onChange={(e) => {
-                            const name = "sol"
-                            const value = e;
-                            setInputs(values => ({...values, [name]: value}))
-                        }}
-                    />
+                    <div className="day-selector">
+                        <label htmlFor="selectSol">Select a day: </label>
+                        {/*TODO set max to be max from selected rover*/}
+                        <NumericInput
+                            min={0}
+                            id="numeric-input"
+                            onChange={(e) => {
+                                const name = "sol"
+                                const value = e;
+                                setInputs(values => ({...values, [name]: value}))
+                            }}
+                        />
+                    </div>
                     <label htmlFor="cameraSelector">Select a camera: </label>
                     <select name="camera" id="dropdown"
                             value={inputs["camera"]} onChange={handleChange}>
@@ -88,9 +91,10 @@ const PhotoViewerForm = (props : any) => {
                         <option value="mardi">Mars Descent Imager</option>
                         <option value="navcam">Navigation Camera</option>
                         <option value="pancam">Panoramic Camera</option>
-                        <option value="minites">Miniature Thermal Emission Spectrometer (Mini-TES)</option>
+                        <option value="minites">Miniature Thermal Emission Spectrometer</option>
                     </select>
-                    <input type="submit" value={"Submit"}/>
+                    <br />
+                    <input type="submit" value={"Submit"} className="submit-button"/>
                 </fieldset>
             </form>
         </div>

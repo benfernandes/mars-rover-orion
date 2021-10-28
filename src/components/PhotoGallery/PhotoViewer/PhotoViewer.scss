@@ -1,7 +1,15 @@
 @import '../../../design/_scss-variables.scss';
 
-img {
+.PhotoViewer img {
+  max-width: 1000px;
   width: 100%;
   height: auto;
+  margin-top: 20px;
+  border: solid 2px rgba($accent-orange, 0.5);
+  border-radius: 10px;
+}
+
+.PhotoViewer {
+  padding: 0 20px;
 }
 
