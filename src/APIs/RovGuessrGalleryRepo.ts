@@ -7,10 +7,10 @@ let cachedImages: {
     "spirit": string[],
 };
 
-export async function getRandomImage(rover: Rover)
+export async function getRandomImage(rover: Rover, refreshImages: boolean = false)
 {
     // Pick random photo
-    if (cachedImages[rover].length === 0)
+    if (refreshImages || cachedImages[rover].length === 0)
         refreshCachedImages(rover);
 
     const randomIndex = Math.floor(Math.random() * cachedImages[rover].length);
