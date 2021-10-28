@@ -41,8 +41,11 @@ const Scene = () => {
                 <Mars />
                 <Marker position={roverPosition.clone().multiplyScalar(490)} />
                 <Html
-                    position={roverPosition.clone().multiplyScalar(540)}
-                    occlude>
+                    position={roverPosition.clone().multiplyScalar(640)}
+                    occlude
+                    center
+                    distanceFactor={800}
+                >
                     <div className="marker-label">Here's where I am!</div>
                 </Html>
             </mesh>
@@ -53,8 +56,8 @@ const Scene = () => {
 
 const MarsModel = () => {
     return (
-        <Canvas className="canvas"
-                camera={{ position: [0, 0, 2000], fov: 40, far: 10000 }}
+        <Canvas
+                camera={{ position: [0, 0, 1700], fov: 40, far: 10000 }}
                 resize={{ polyfill: ResizeObserver}}>
             <directionalLight intensity={0.3} position={[-2000, 1000, 2000]}/>
             <ambientLight intensity={0.02} />

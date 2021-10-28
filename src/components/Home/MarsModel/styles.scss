@@ -1,11 +1,7 @@
+@import "../../../design/_scss-variables.scss";
+
 * {
   box-sizing: border-box;
-}
-
-canvas {
-  width: 600px;
-  height: 600px;
-  margin: 0 auto;
 }
 
 div.marker-label {
@@ -13,7 +9,7 @@ div.marker-label {
   padding: 5px;
   border-radius: 3px;
   width: 100px;
-  background-color: rgba(142, 108, 136, 0.35);
+  background-color: rgba($accent-purple, 0.35);
   color: white;
   text-align: center;
 }
