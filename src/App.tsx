@@ -6,7 +6,7 @@ import StarrySky from './components/Background/StarrySky'
 import RoverDetailsPage from './pages/RoverDetailsPage';
 import RovGuessrPage from './pages/RovGuessrPage';
 import HomePage from "./pages/HomePage/HomePage";
-import GalleryPage from "./pages/GalleryPage/GalleryPage";
+import GalleryPage from "./pages/GalleryPage";
 
 function App() {
   return (
