@@ -3,7 +3,7 @@ import { GetRoverPhotos } from "./RoverPhotoRepo";
 
 var cachedImages: {
     curiosity: string[],
-    perseverance: string[],
+    opportunity: string[],
     spirit: string[],
 };
 
@@ -12,7 +12,7 @@ export async function getRandomImage(rover: Rover, refreshImages: boolean = fals
     if (!cachedImages)
         cachedImages = {
             curiosity: [],
-            perseverance: [],
+            opportunity: [],
             spirit: []
         };
 
