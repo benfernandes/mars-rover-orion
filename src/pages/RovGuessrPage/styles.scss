@@ -9,7 +9,7 @@
 }
 
 .rov-guessr-page img {
-    width: 30%;
+    width: 30vw;
 }
 
 .rover-selection {
@@ -24,6 +24,11 @@
     height: 4rem;
 
     margin: 4rem;
+}
+
+.rov-guessr-page .benny {
+    position: relative;
+    width: 20px;
 }
 
 .floating-text {

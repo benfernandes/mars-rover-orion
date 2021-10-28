@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
-import './styles.scss'
 import {Rover} from '../../APIs/RoverManifest'
 import { RovGuessr } from './RovGuessr';
+import './styles.scss'
 
 const RovGuessrPage: React.FC = () => {
 
@@ -20,7 +20,13 @@ const RovGuessrPage: React.FC = () => {
     return <div className='rov-guessr-page'>
         <h1>RovGuessr™</h1>
         <p>Guess what rover this picture was taken from</p>
-        <img src={globalImage} alt='currently shown rover'/>
+        <div>
+            <img src={globalImage} alt='currently shown rover'/>
+            <img src={'Ben.png'} className='benny' alt='benny' style={{
+                top: `${Math.random() * -90}%`,
+                left: `${Math.random() * -90}%`,
+            }}/>
+        </div>
         <ul className='rover-selection'>
             <li>
                 <button onClick={() => game.handleSelection(selectedRover, Rover.curiosity)}>
