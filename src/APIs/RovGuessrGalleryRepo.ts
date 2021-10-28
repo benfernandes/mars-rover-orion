@@ -1,17 +1,24 @@
 import { GetRoverManifest, Rover } from "./RoverManifest";
 import { GetRoverPhotos } from "./RoverPhotoRepo";
 
-let cachedImages: {
-    "curiosity": string[],
-    "perseverance": string[],
-    "spirit": string[],
+var cachedImages: {
+    curiosity: string[],
+    perseverance: string[],
+    spirit: string[],
 };
 
 export async function getRandomImage(rover: Rover, refreshImages: boolean = false)
 {
+    if (!cachedImages)
+        cachedImages = {
+            curiosity: [],
+            perseverance: [],
+            spirit: []
+        };
+
     // Pick random photo
     if (refreshImages || cachedImages[rover].length === 0)
-        refreshCachedImages(rover);
+        await refreshCachedImages(rover);
 
     const randomIndex = Math.floor(Math.random() * cachedImages[rover].length);
     return cachedImages[rover][randomIndex];
