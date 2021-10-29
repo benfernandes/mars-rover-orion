@@ -10,6 +10,7 @@ import GalleryPage from "./pages/GalleryPage";
 import NavBarFunc from "./components/NavBar/NavBar";
 import NonExistentPage from './pages/404Page/404Page';
 
+
 function App() {
   return (
     <Router>
