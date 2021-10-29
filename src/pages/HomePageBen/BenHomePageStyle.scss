@@ -47,6 +47,10 @@ a {
   align-items: center;
 }
 
+.title-section {
+  height: 100vh;
+}
+
 //Title Section Media Breakpoint
 @media screen and (min-width: 800px) {
   .title-section {
