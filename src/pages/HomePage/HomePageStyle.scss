@@ -8,6 +8,11 @@
   position: relative;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .title-container {
   font-family: 'Space Mono', monospace;
   position: absolute;
