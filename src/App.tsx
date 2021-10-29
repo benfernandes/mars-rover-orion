@@ -7,6 +7,7 @@ import RoverDetailsPage from './pages/RoverDetailsPage';
 import RovGuessrPage from './pages/RovGuessrPage';
 import HomePage from "./pages/HomePage/HomePage";
 import GalleryPage from "./pages/GalleryPage";
+import BenHomePage from "./pages/HomePageBen/BenHomePage";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route exact path="/home">
                 <HomePage/>
+            </Route>
+            <Route exact path="/benhome">
+                <BenHomePage />
             </Route>
             <Route path="/gallery">
                 <GalleryPage/>
