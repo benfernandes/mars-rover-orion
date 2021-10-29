@@ -16,9 +16,9 @@ type GLTFResult = GLTF & {
     }
 }
 
-const doge = new THREE.TextureLoader().load('assets/MarsModel/doge.jpg')
-doge.flipY = false
-const dogeMaterial = new THREE.MeshStandardMaterial( { map : doge} )
+const ben = new THREE.TextureLoader().load('assets/MarsModel/ben.jfif')
+ben.flipY = false
+const benMaterial = new THREE.MeshStandardMaterial( { map : ben} )
 
 export default function Mars({ ...props }: JSX.IntrinsicElements['group']) {
     const group = useRef<THREE.Group>()
@@ -26,7 +26,7 @@ export default function Mars({ ...props }: JSX.IntrinsicElements['group']) {
     // model is from https://solarsystem.nasa.gov/resources/2372/mars-3d-model/
     return (
         <group ref={group} {...props} dispose={null}>
-            <mesh geometry={nodes.Cube008.geometry} material={dogeMaterial} />
+            <mesh geometry={nodes.Cube008.geometry} material={benMaterial} />
         </group>
     )
 }
