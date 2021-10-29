@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.scss';
 
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import StarrySky from './components/Background/StarrySky';
-import GalleryPage from './pages/GalleryPage';
-import HomePage from './pages/HomePage';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import StarrySky from './components/Background/StarrySky'
 import RoverDetailsPage from './pages/RoverDetailsPage';
 import RovGuessrPage from './pages/RovGuessrPage';
+import HomePage from "./pages/HomePage/HomePage";
+import GalleryPage from "./pages/GalleryPage";
 import NavBarFunc from "./components/NavBar/NavBar";
 import NonExistentPage from './pages/404Page/404Page';
 
@@ -18,7 +17,10 @@ function App() {
         {/* Components that are on all pages go outside of switch */}
         <StarrySky numberOfStars={250} maxSize={3}/>
         <Switch>
-            <Route path="/" exact>
+            <Route exact path="/">
+                <Redirect to="/home" />
+            </Route>
+            <Route exact path="/home">
                 <HomePage/>
             </Route>
             <Route path="/gallery">
