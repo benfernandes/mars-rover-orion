@@ -32,10 +32,21 @@ async function refreshCachedImages(rover: Rover) {
 
     let roverPhotos = await GetRoverPhotos(rover, randomSol, "FHAZ");
 
-    while (roverPhotos.length === 0)
+    const maxRefresh = 15;
+    let currentRefresh = 0;
+
+    while (roverPhotos.length === 0 && currentRefresh < maxRefresh)
     {
         randomSol = Math.floor(Math.random() * manifest.max_sol);
         roverPhotos = await GetRoverPhotos(rover, randomSol, "FHAZ");
+
+        currentRefresh += 1;
+    }
+
+    if (currentRefresh === maxRefresh)
+    {
+        cachedImageUrls[rover] = ["https://media-exp1.licdn.com/dms/image/C4D03AQF7C5KzdUFLcg/profile-displayphoto-shrink_800_800/0/1562106459334?e=1639612800&v=beta&t=7NqH2EZyTry0de4o9_1UqV5YVi_GOV6smcvpXiDCSb4"];
+        return;
     }
 
     cachedImageUrls[rover] = roverPhotos.map(photo => photo.img_src);
