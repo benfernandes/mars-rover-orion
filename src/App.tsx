@@ -4,10 +4,10 @@ import './App.scss';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import StarrySky from './components/Background/StarrySky'
 import RoverDetailsPage from './pages/RoverDetailsPage';
-import RovGuessrPage from './pages/RovGuessrPage';
 import HomePage from "./pages/HomePage/HomePage";
 import GalleryPage from "./pages/GalleryPage";
 import NavBarFunc from "./components/NavBar/NavBar";
+import RovGuessrPage from './pages/RovGuessrPage/RovGuessrPage';
 import NonExistentPage from './pages/404Page/404Page';
 
 

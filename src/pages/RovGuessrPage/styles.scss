@@ -1,0 +1,50 @@
+.rov-guessr-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    color: white;
+}
+
+.rov-guessr-page img {
+    width: 30vw;
+}
+
+.rover-selection {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+}
+
+.rover-selection button {
+    width: 10rem;
+    height: 4rem;
+
+    margin: 4rem;
+}
+
+.rov-guessr-page .benny {
+    position: relative;
+    width: 20px;
+}
+
+.floating-text {
+    position: absolute;
+
+    color: #a0d0d6;
+    font-size: 5rem;
+
+    animation: float-upwards 1s infinite; 
+}
+
+@keyframes float-upwards {
+    0% {
+        top: -10vh;
+    }
+    100% {
+        top: 35vh;
+    }
+}
