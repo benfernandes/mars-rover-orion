@@ -8,7 +8,7 @@ const BenHomePage = () => {
     return <div className="page-container">
         <div className={"title-section"}>
             <div className="title-container">
-                <h1>Mars Orion Website</h1>
+                <h1>Mars Orion We<a href={"/home"}>b</a>site</h1>
             </div>
             <div className="mars-model-container">
                 <div className={"mars-model-wrapper"}>
