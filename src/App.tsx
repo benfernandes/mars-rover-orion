@@ -43,20 +43,6 @@ function App() {
             <Route path="/Rovers/Ben">
                 <BenProfile/>
             </Route>
-            {/*<Route path="/Rovers">*/}
-            {/*    <Route path="/Opportunity">*/}
-            {/*        <OpportunityProfile/>*/}
-            {/*    </Route>*/}
-            {/*    <Route path="/Curiosity">*/}
-            {/*        <CuriosityProfile/>*/}
-            {/*    </Route>*/}
-            {/*    <Route path="/Spirit">*/}
-            {/*        <SpiritProfile/>*/}
-            {/*    </Route>*/}
-            {/*    <Route path="/Ben">*/}
-            {/*        <BenProfile/>*/}
-            {/*    </Route>*/}
-            {/*</Route>*/}
         </Switch>
     </Router>
   );
