@@ -1,5 +1,5 @@
 export enum Rover {
-    perseverance = "perseverance",
+    opportunity = "opportunity",
     curiosity = "curiosity",
     spirit = "spirit",
 }
@@ -20,8 +20,10 @@ export interface RoverManifest {
 }
 
 export async function GetRoverManifest(rover: Rover) {
-    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}`); // wither api key?
+    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
     const json = await response.json();
 
     return (json as RoverManifest).photo_manifest;
 }
+
+
