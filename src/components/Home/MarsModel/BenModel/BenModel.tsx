@@ -1,12 +1,12 @@
 import {Canvas, useFrame } from "@react-three/fiber";
-import './styles.scss'
+import '../styles.scss'
 import { Html } from "@react-three/drei";
 import Ben from "./Ben";
 import { ResizeObserver } from '@juggle/resize-observer';
 import React, {useRef, Suspense, useState, useEffect} from 'react';
 import {Object3D, Vector3} from 'three';
-import { RoverPositionRepo, Mission } from '../../../APIs/RoverPositionRepo';
-import LatLongToVec3 from './LatLongToVec3';
+import { RoverPositionRepo, Mission } from '../../../../APIs/RoverPositionRepo';
+import LatLongToVec3 from '../LatLongToVec3';
 
 
 const BenScene = () => {

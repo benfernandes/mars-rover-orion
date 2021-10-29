@@ -2,7 +2,7 @@ import PhotoGallery from "../../components/Home/PhotoGallery/PhotoGallery";
 import IntroSection from "../../components/Home/IntroSection/IntroSection";
 import RoverInfo from "../../components/Home/RoverInfo/RoverInfo";
 import "./BenHomePageStyle.scss"
-import BenModel from "../../components/Home/MarsModel/BenModel";
+import BenModel from "../../components/Home/MarsModel/BenModel/BenModel";
 
 const BenHomePage = () => {
     return <div className="page-container">
