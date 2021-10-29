@@ -1,0 +1,13 @@
+@import "../../design/scss-variables";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  font-family: 'Space Mono', monospace;
+}

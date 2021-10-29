@@ -26,3 +26,5 @@ export async function GetRoverManifest(rover: Rover) {
 
     return (json as RoverManifest).photo_manifest;
 }
+
+

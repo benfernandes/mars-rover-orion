@@ -1,0 +1,67 @@
+@import "../../design/scss-variables";
+
+.rover-profile {
+  width: 60%;
+  color: $text-off-white;
+  margin-block: 0;
+  background-color: rgba($accent-purple, 0.7);
+  padding: 60px ;
+  margin: 0 auto;
+  font-size: 1.2em;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.border {
+  border: 1px solid $text-off-white;
+  margin-top: 1em;
+  width: 90%;
+  border-radius: 10px;
+}
+
+//.thing {
+//  display: grid;
+//  grid-template-areas: "bg bg bg" "bg nobg bg" "bg bg bg";
+//}
+//
+//.bg-filler {
+//  grid-area: bg;
+//  background-color: red;
+//}
+//
+//.nobg-filler {
+//  grid-area: nobg;
+//  border: solid red 2px;
+//}
+
+
+
+.rover-name {
+  color: $text-off-white;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.rover-name span {
+  display: inline;
+  border: 1px solid $text-off-white;
+  background: $accent-teal;
+  padding: 5px 10px;
+  position: relative;
+  top: -1.3em;
+  border-radius: 10px;
+}
+
+.profile-pic {
+  max-width: 40%;
+  border-radius: 10px;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 50px 20px;
+  border-radius: 10px;
+
+}
