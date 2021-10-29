@@ -1,20 +1,18 @@
-import MarsModel from '../../components/Home/MarsModel/MarsModel';
 import PhotoGallery from "../../components/Home/PhotoGallery/PhotoGallery";
 import IntroSection from "../../components/Home/IntroSection/IntroSection";
 import RoverInfo from "../../components/Home/RoverInfo/RoverInfo";
-import "./HomePageStyle.scss"
+import "./BenHomePageStyle.scss"
+import BenModel from "../../components/Home/MarsModel/BenModel/BenModel";
 
-
-const HomePage = () => {
-<<<<<<< HEAD
+const BenHomePage = () => {
     return <div className="page-container">
         <div className={"title-section"}>
             <div className="title-container">
-                <h1>Mars Orion We<a href={"/benhome"}>b</a>site</h1>
+                <h1>Mars Orion We<a href={"/home"}>b</a>site</h1>
             </div>
             <div className="mars-model-container">
                 <div className={"mars-model-wrapper"}>
-                    <MarsModel />
+                    <BenModel />
                 </div>
             </div>
         </div>
@@ -27,12 +25,7 @@ const HomePage = () => {
         <div className="rover-info-container">
             <RoverInfo />
         </div>
-=======
-    return <div>
-        <MarsModel />
-        <PhotoGallery/>
->>>>>>> origin/20-PhotoGallery
     </div>;
 }
 
-export default HomePage
+export default BenHomePage
