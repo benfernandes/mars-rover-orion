@@ -4,7 +4,7 @@ import {GetRoverPhotos} from "../../../APIs/RoverPhotoRepo";
 import {GetRoverManifest, Rover} from "../../../APIs/RoverManifest";
 
 
-const PhotoGallery = ({ slides }: {slides: Array<{image:string}>}) => {
+const PhotoGallery = () => {
     const [imageData, setImageData] = useState<string[]>([]);
 
 
@@ -12,20 +12,16 @@ const PhotoGallery = ({ slides }: {slides: Array<{image:string}>}) => {
     useEffect(() => {
         GetRoverManifest(Rover.spirit).then(manifestData => {
             const max_sol = manifestData.max_sol - 1;
-            GetRoverPhotos(Rover.spirit, max_sol).then(data => {
+
+            GetRoverPhotos(Rover.spirit, 4).then(data => {
                 setImageData(data.map(image => image.img_src))
-                console.log(data)
             })
         })
 
     }, [])
 
-
-
-
-
     const [current, setCurrent] = useState(0);
-    const length = slides.length
+    const length = imageData.length
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
