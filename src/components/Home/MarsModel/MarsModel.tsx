@@ -3,8 +3,9 @@ import './styles.scss'
 import { Html } from "@react-three/drei";
 import Mars from "./Mars";
 import { ResizeObserver } from '@juggle/resize-observer';
-import React, {useRef, Suspense, useState, useEffect} from 'react';
-import {Object3D, Vector3} from 'three';
+import {useRef, Suspense, useState, useEffect} from 'react';
+import {Object3D, Vector3, Clock} from 'three';
+import {EffectComposer, Bloom, Noise} from '@react-three/postprocessing'
 import { getRoverPosition, Mission } from '../../../APIs/RoverPositionRepo';
 import latLongToVec3 from './LatLongToVec3';
 
@@ -19,8 +20,11 @@ const Marker = (props: JSX.IntrinsicElements['mesh']) => (
 
 const Scene = () => {
     const planet = useRef(new Object3D());
+    const [clock] = useState(new Clock());
 
-    useFrame(() => (planet.current.rotation.y += 0.005));
+    useFrame(() => {
+        planet.current.rotation.y += 0.25 * clock.getDelta();
+    });
     // Adds rotation to planet
 
     const sizeOfSphere = 15;
@@ -64,6 +68,11 @@ const MarsModel = () => {
             <Suspense fallback="loading">
                 <Scene />
             </Suspense>
+
+            <EffectComposer>
+                <Bloom luminanceThreshold={0.04} luminanceSmoothing={0.0} intensity={0.2}/>
+                <Noise opacity={0.01}/>
+            </EffectComposer>
         </Canvas>
     )
 }
