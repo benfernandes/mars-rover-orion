@@ -27,7 +27,7 @@ const GalleryPage : React.FC = () => {
         GetRoverPhotos(formData.rover, formData.sol, formData.camera)
             .then(data => {
                 if (data !== undefined) {
-                    setImgData(data.map(image => image.img_src))}
+                    setImgData((data.map(image => image.img_src)).sort(() => Math.random() - 0.5))}
             })
         console.log(imgData)
     }, [formData])
