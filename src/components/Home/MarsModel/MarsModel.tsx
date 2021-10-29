@@ -50,7 +50,10 @@ const Scene = () => {
                     center
                     distanceFactor={800}
                 >
-                    <div className="marker-label">Here's where I am!</div>
+                    <div className="marker-label">
+                        Here I am!
+                        <img src={"/assets/MarsModel/roverIcon.png"} className="rover-icon"/>
+                    </div>
                 </Html>
             </mesh>
         </group>
