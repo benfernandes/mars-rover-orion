@@ -12,7 +12,7 @@ export const DropdownMenu: React.FC = () => {
                 in={activeMenu === "main"}
                 unmountOnExit
                 classNames="menu-primary"
-                timeout={500}
+                timeout={1}
             >
                 <div className="dropdown-menu">
                     <Link to="/">
@@ -27,9 +27,11 @@ export const DropdownMenu: React.FC = () => {
                             Gallery
                         </DropdownItem>
                     </Link>
-                    <Link to="/roverDetails">
+                    <Link to="/">
                         <DropdownItem setActiveMenu={setActiveMenu}
-                                      leftIcon={<img src={"/icons/rovericon.svg"} alt="Rover Details"/>}>
+                                      leftIcon={<img src={"/icons/rovericon.svg"} alt="Rover Details"/>}
+                                      rightIcon={<img className="right-chevron-menu" src={"/icons/chevronrightmenu.svg"} alt="Rover Details"/>}
+                                      goToMenu="rovers">
                             Rover Details
                         </DropdownItem>
                     </Link>
@@ -41,6 +43,36 @@ export const DropdownMenu: React.FC = () => {
                     </Link>
                 </div>
             </CSSTransition>
+            <CSSTransition
+                in={activeMenu === "rovers"}
+                unmountOnExit
+                classNames="rover-menu"
+                timeout={1}
+            >
+                <div className="dropdown-menu">
+                    <Link to="/Rovers/Curiosity">
+                        <DropdownItem setActiveMenu={setActiveMenu}>
+                            Curiosity
+                        </DropdownItem>
+                    </Link>
+                    <Link to="/Rovers/Opportunity">
+                        <DropdownItem setActiveMenu={setActiveMenu}>
+                            Opportunity
+                        </DropdownItem>
+                    </Link>
+                    <Link to="/Rovers/Spirit">
+                        <DropdownItem setActiveMenu={setActiveMenu}>
+                            Spirit
+                        </DropdownItem>
+                    </Link>
+                    <Link to="/Rovers/Ben">
+                        <DropdownItem setActiveMenu={setActiveMenu}>
+                            BENJAMIN FERNANDES
+                        </DropdownItem>
+                    </Link>
+                </div>
+            </CSSTransition>
+
         </div>
     )
 }
