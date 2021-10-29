@@ -33,11 +33,6 @@ const PhotoGallery = () => {
 
 
     return (
-<<<<<<< HEAD
-        <div className="placeholder">
-            <h2>Placeholder Gallery</h2>
-            <img className={"placeholder-img"} src={"/assets/placeholder.jpg"} />
-=======
         <div className="SliderImages">
             <img src={"/icons/left.svg"} className="left-arrow" alt="Left Arrow" onClick={prevSlide}/>
             <img src={"/icons/right.svg"} className="right-arrow" alt="Right Arrow" onClick={nextSlide}/>
@@ -48,7 +43,6 @@ const PhotoGallery = () => {
                     </div>
                 )
             })}
->>>>>>> origin/20-PhotoGallery
         </div>
     )
 }

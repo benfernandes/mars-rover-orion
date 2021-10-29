@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-@import "../../../design/_scss-variables.scss";
-
-.placeholder {
-  background-color: rgba($accent-purple, 0.22);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 50px 100px;
-  gap: 50px;
-}
-.placeholder h2 {
-  color: $text-off-white;
-  min-width: 300px;
-  text-align: center;
-}
-
-.placeholder-img {
-  max-width: 800px;
-  min-width: 300px;
-  width: 80%;
-  height: auto;
-  border-radius: 10px;
-}
-=======
 .SliderImages{
   position: relative;
   max-width: 60vw;
@@ -72,4 +45,3 @@
   transition-duration: 1s;
   transform: scale(1.08);
 }
->>>>>>> origin/20-PhotoGallery
