@@ -12,7 +12,7 @@ export interface RoverPhotos {
 
 export async function GetRoverPhotos(rover: Rover, sol = 1, camera?: string) {
     try {
-        const response = await fetch(camera === undefined ? `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&api_key=${process.env.REACT_APP_NASA_API_KEY}` : `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&camera=${camera}&api_key=${process.env.REACT_APP_NASA_API_KEY}`)
+        const response = await fetch(camera === undefined ? `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&api_key=kJ7v3N2kgUumU8btc2WlCNAjYstJgXeGyXtYslTj` : `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&camera=${camera}&api_key=kJ7v3N2kgUumU8btc2WlCNAjYstJgXeGyXtYslTj`)
         const json = await response.json();
         return (json as RoverPhotos).photos;
 

@@ -20,7 +20,8 @@ export interface RoverManifest {
 }
 
 export async function GetRoverManifest(rover: Rover) {
-    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}`); // wither api key?
+    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=kJ7v3N2kgUumU8btc2WlCNAjYstJgXeGyXtYslTj`); // wither api key?
+    console.log(response);
     const json = await response.json();
 
     return (json as RoverManifest).photo_manifest;

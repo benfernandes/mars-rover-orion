@@ -6,7 +6,7 @@ import StarrySky from './components/Background/StarrySky'
 import RoverDetailsPage from './pages/RoverDetailsPage';
 import HomePage from "./pages/HomePage/HomePage";
 import BenHomePage from "./pages/HomePageBen/BenHomePage";
-import GalleryPage from "./pages/GalleryPage";
+import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import NavBarFunc from "./components/NavBar/NavBar";
 import RovGuessrPage from './pages/RovGuessrPage/RovGuessrPage';
 import NonExistentPage from './pages/404Page/404Page';
