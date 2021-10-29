@@ -40,7 +40,7 @@ const BenScene = () => {
         <group ref={planet}>
             <mesh
                 // Sets initial rotation
-                rotation={[0, 3.3, 0]}>
+                rotation={[0, 0, 0]}>
                 <Ben />
                 <Marker position={roverPosition.clone().multiplyScalar(490)} />
                 <Html
