@@ -8,7 +8,7 @@ div.marker-label {
   border: 1px solid #888888;
   padding: 5px;
   border-radius: 3px;
-  width: 100px;
+  width: 110px;
   background-color: rgba($accent-purple, 0.35);
   color: white;
   text-align: center;
@@ -17,4 +17,6 @@ div.marker-label {
 .rover-icon {
   width: 40px;
   height: 40px;
+  display: block;
+  margin: 0 auto;
 }
