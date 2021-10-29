@@ -1,0 +1,15 @@
+.rover-image {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    display: inline-flex;
+}
+
+.rover-image .filter {
+    position: absolute;
+    background-color: #99350B;
+    opacity: 70%;
+
+    height: 100%;
+    width: 100%;
+}
