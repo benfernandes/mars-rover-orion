@@ -9,7 +9,7 @@ const HomePage = () => {
     return <div className="page-container">
         <div className={"title-section"}>
             <div className="title-container">
-                <h1>Mars Orion We<a href={"/benhome"}>b</a>site</h1>
+                <h1>The Red PlA<a href={"/benhome"}>P</a>Pnet</h1>
             </div>
             <div className="mars-model-container">
                 <div className={"mars-model-wrapper"}>
