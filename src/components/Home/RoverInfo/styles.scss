@@ -1,0 +1,48 @@
+@import "../../../design/_scss-variables.scss";
+
+.rover-info-wrapper {
+  background-color: rgba($accent-teal, 0.32);;
+  border-radius: 10px;
+  color: $text-off-white;
+  margin: 0 auto;
+  padding: 1px 0;
+}
+
+.rover-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.rover-info {
+  border: solid 1px $accent-orange;
+  padding: 20px;
+  margin: 50px 20px;
+  border-radius: 10px;
+  background: rgba($accent-orange, 0.2);
+}
+
+.rover-profile-img {
+  width: 100px;
+  height: 100px;
+  border: solid 5px rgba($accent-teal, 0.5);
+  border-radius: 10px;
+}
+
+.rover-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.reverse {
+  justify-content: flex-end;
+}
+
+.rover-name {
+  font-size: 1.2em;
+}
+
+.rover-status {
+  font-size: 1.2em;
+}

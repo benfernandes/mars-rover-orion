@@ -1,0 +1,80 @@
+@import "../../design/_scss-variables.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+//Title section
+
+.page-container {
+  position: relative;
+}
+
+.title-container {
+  font-family: 'Space Mono', monospace;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+.title-container h1{
+  //background-color: $accent-purple;
+  color: $text-off-white;
+  padding: 10px;
+  border-radius: 10px;
+  //border-style: solid;
+  font-size: 3.5em;
+  max-width: 250px;
+  margin: 80px auto;
+}
+
+//Mars model
+
+.mars-model-wrapper {
+  width: 700px;
+  height: 500px;
+}
+
+.mars-model-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+//Title Section Media Breakpoint
+@media screen and (min-width: 800px) {
+  .title-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.title-container {
+    display: block;
+    position: relative;
+  }
+
+  .title-container h1{
+    margin: 0 0 0 300px;
+  }
+}
+
+//Intro Section
+
+.intro-section-container {
+  width: 100%;
+}
+
+//Photo Gallery
+.photo-gallery-placeholder-container {
+  margin: 100px 0;
+  width: 100%;
+}
+
+//Rover info
+.rover-info-container {
+  width: 100%;
+  margin-bottom: 100px;
+}
