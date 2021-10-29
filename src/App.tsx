@@ -5,10 +5,11 @@ import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import StarrySky from './components/Background/StarrySky'
 import GalleryPage from './pages/GalleryPage';
-import HomePage from './pages/HomePage';
 import RoverDetailsPage from './pages/RoverDetailsPage';
 import RovGuessrPage from './pages/RovGuessrPage';
+import HomePage from "./pages/HomePage/HomePage";
 import NavBarFunc from "./components/NavBar/NavBar";
+
 
 function App() {
   return (
