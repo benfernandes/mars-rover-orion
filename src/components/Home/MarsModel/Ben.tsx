@@ -18,7 +18,7 @@ type GLTFResult = GLTF & {
 
 const doge = new THREE.TextureLoader().load('assets/MarsModel/doge.jpg')
 doge.flipY = false
-const dogeMaterial = new THREE.MeshBasicMaterial( { map : doge} )
+const dogeMaterial = new THREE.MeshStandardMaterial( { map : doge} )
 
 export default function Mars({ ...props }: JSX.IntrinsicElements['group']) {
     const group = useRef<THREE.Group>()
