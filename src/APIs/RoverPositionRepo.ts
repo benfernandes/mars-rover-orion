@@ -5,29 +5,26 @@ export enum Mission
 
 export interface RoverPosition
 {
-    features: {
+    features: Array<{
         properties: {
             lat: number;
             lon: number;
         };
-    }[];
+    }>;
 }
 
-export class RoverPositionRepo
-{    
-    static async GetRoverPosition(mission: Mission)
-    {
-        const response = await fetch(`https://mars.nasa.gov/mmgis-maps/M20/Layers/json/${mission}_waypoints_current.json`);
-        const json = await response.json();
+export async function getRoverPosition(mission: Mission)
+{
+    const response = await fetch(`https://mars.nasa.gov/mmgis-maps/M20/Layers/json/${mission}_waypoints_current.json`);
+    const roverPosition: RoverPosition = await response.json();
 
-        return (await <RoverPosition>json).features[0].properties;
-    }
+    return roverPosition.features[0].properties;
+}
 
-    static async GetRoverWaypoints(mission: Mission)
-    {
-        const response = await fetch(`https://mars.nasa.gov/mmgis-maps/M20/Layers/json/${mission}_waypoints.json`);
-        const json = await response.json();
+export async function getRoverWaypoints(mission: Mission)
+{
+    const response = await fetch(`https://mars.nasa.gov/mmgis-maps/M20/Layers/json/${mission}_waypoints.json`);
+    const roverPosition: RoverPosition = await response.json();
 
-        return (await <RoverPosition>json).features;
-    }
+    return roverPosition.features;
 }
