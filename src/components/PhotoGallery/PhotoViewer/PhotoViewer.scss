@@ -1,0 +1,21 @@
+@import '../../../design/_scss-variables.scss';
+
+.PhotoViewer img {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border: solid 2px rgba($accent-orange, 0.5);
+  border-radius: 10px;
+}
+
+.PhotoViewer {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.PhotoViewer h2 {
+  color: $text-off-white;
+}
+

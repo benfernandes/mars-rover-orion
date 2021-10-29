@@ -1,7 +1,8 @@
-.SliderImages{
-  position: relative;
-  max-width: 60vw;
-  height: 100vh;
+@import "../../../design/scss-variables";
+
+.placeholder {
+  background-color: rgba($accent-purple, 0.22);
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;

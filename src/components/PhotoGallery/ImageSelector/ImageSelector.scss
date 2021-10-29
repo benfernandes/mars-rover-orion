@@ -1,0 +1,24 @@
+@import '../../../design/_scss-variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.ImageSelector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ImageSelectorPhoto {
+  width: 23%;
+  min-width: 160px;
+  height: auto;
+  margin: 0.5em;
+  border: solid 2px rgba($accent-orange, 0.5);
+  border-radius: 10px;
+}
+.selected {
+  outline: 3px solid rgba($accent-teal, 1);
+  border: none;
+}
