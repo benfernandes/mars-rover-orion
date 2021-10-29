@@ -27,14 +27,12 @@ export const DropdownMenu: React.FC = () => {
                             Gallery
                         </DropdownItem>
                     </Link>
-                    <Link to="/">
                         <DropdownItem setActiveMenu={setActiveMenu}
                                       leftIcon={<img src={"/icons/rovericon.svg"} alt="Rover Details"/>}
                                       rightIcon={<img className="right-chevron-menu" src={"/icons/chevronrightmenu.svg"} alt="Rover Details"/>}
                                       goToMenu="rovers">
                             Rover Details
                         </DropdownItem>
-                    </Link>
                     <Link to="/RovGuessr">
                         <DropdownItem setActiveMenu={setActiveMenu}
                                       leftIcon={<img src={"/icons/thinkingicon.svg"} alt="Rover Game"/>}>
